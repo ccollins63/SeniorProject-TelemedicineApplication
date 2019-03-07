@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@media (max-width: 1345px){
+	
+	
+}
+
+.nav{
+	
+	
+
+	border: 1px solid black;
+	padding-left: 0px;
+	padding-right: 0px;
+	
+	
+}
+
+
+button{
+
+	font-size: 20px;
+    line-height: 200%;
+	width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: lightblue; 
+	
+	
+	
+}
+.companylogo{
+	text-align: center;
+	
+}
+.EqunioxTitle{
+	font-size: 45px;
+	text-align: center;
+	border: 1px solid black;
+	
+}
+
+.appTitle{
+	
+	font-size: 35px;
+	font-style: oblique;
+	text-align: center;
+}
+
+
+.welcome{
+	font-size: 30px;
+}
+
+.mainBodyTitle{
+	
+	font-size: 40px;
+	font-style: bold;
+	padding-left: 20px;
+	text-decoration: underline;
+	
+}
+
+#textContainer{
+	position: relative;
+	width: auto;
+	height: auto;
+}
+
+.info p{	
+
+	border: 1px solid black;
+}
+
+#rightInfoCenter p{
+	text-align: center;
+	color: black;
+	background-color: lightblue; 
+}
+
+
+.scheduleAppointment{
+	text-align: center;
+	
+	vertical-align: text-bottom;
+	background-color: lightblue;
+}
+
+.scheduleAppointment td{
+	
+	text-align: center;
+	 
+	
+}
+/*.signout{
+	border: 1px solid black;
+	position: 500px;
+	flex 3;
+	
+}*/
+
+
+
+.banner img{
+	padding: 10px;
+}
