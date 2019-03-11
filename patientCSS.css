@@ -26,18 +26,6 @@ h3{
 	padding: 5px;
 }
 
-.nav{
-	
-	
-
-	border: 1px solid black;
-	padding-left: 0px;
-	padding-right: 0px;
-	
-	
-}
-
-
 button{
 
 	font-size: 20px;
@@ -50,6 +38,10 @@ button{
 	
 	
 }
+
+/* Header */ 
+
+
 .companylogo{
 	text-align: center;
 	
@@ -57,7 +49,6 @@ button{
 .EqunioxTitle{
 	font-size: 45px;
 	text-align: center;
-	border: 1px solid black;
 	
 }
 
