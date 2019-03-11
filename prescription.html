@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <!-- InstanceBeginEditable name="doctitle" -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PatientPrescriptionView</title>
+<link href="css/bootstrap-4.2.1.css" rel="stylesheet" type="text/css">
 <!-- InstanceEndEditable -->
 <link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="head" -->
@@ -57,63 +60,42 @@
       <table width="90%" border="0" cellpadding="0">
         <tbody>
           <tr class="banner">
-           <td>Prescriptions</td>
+           <td class="appTitle">Prescriptions</td>
+			<!--
             <td width="22%"><img src="images/Ali.jpeg" alt="Ali" height="150px" width="150px" ></td>
             <td width="78%" class="signout"><p id="a">Welcome, John Doe </p>
               <p id="b"> Sign Out </p></td>
+			-->
           </tr>
         </tbody>
       </table>
       <!--Patient View Dashboard Part 2-->
-      <table class="patientbody" width="90%" border="2" cellpadding="0">
-        <tbody>
-          <!--Section 1 Appointments-->
-          <tr>
-            <td><p>You are on the following medications: </p></td>
-            <td>Schedule An Appointment</td>
-          </tr>
-          <!--End of Section 1 Appointments-->
-          <!--Section 2 Prescriptions-->
-          <tr>
-            <td><p>Drug Name Here</p>
-              <p>Instructions for the medication would be located here</p></td>
-            <td><p>&nbsp;</p></td>
-          </tr>
-          <!--End of Section 2 Prescriptions-->
-          <!--Section 3 Messages-->
-          <tr>
-            <td><p>Prescribed by: John Smith MD</p></td>
-            <td>Prescribed on: 02/28/2019</td>
-          </tr>
-          <tr>
-          	<td> <p>Quantity: 60 tablets</p></td>
-          	<td><p>Request Refill: </p></td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td><p>Drug Name Here</p>
-              <p>Instructions for the medication would be located here</p></td>
-            <td><p>&nbsp;</p></td>
-          </tr>
-          <tr>
-            <td><p>Prescribed by: John Smith MD</p></td>
-            <td>Prescribed on: 02/28/2019</td>
-          </tr>
-          <tr>
-            <td><p>Quantity: 60 tablets</p></td>
-            <td><p>Request Refill: </p></td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <!--End of Section 3 Messages-->
-        </tbody>
-      </table>
-      <p>&nbsp;</p>
+      <div style="padding: 15px">
+        <h4>You are on the following medications:</h4>
+      </div>
+	  <div class="prescriptionContainer">
+		  <div class="spaceBetween">
+		  	<h5 class="drugName">Drug name here</h5>
+		  	<p>Prescribed on: 02/12/12</p>
+		  </div>
+		  <div>
+		    <p>Instructions for the medication would be located here.</p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: 90 tablets</span>
+			<button class="sectionButton" style="float:right;">Request refill</button>
+		  </div>
+		</div>
+		  
+		  <div class="prescriptionContainer">
+		  <div class="spaceBetween">
+		  	<h5 class="drugName">Drug name here</h5>
+		  	<p>Prescribed on: 02/12/12</p>
+		  </div>
+		  <div>
+		    <p>Instructions for the medication would be located here.</p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: 90 tablets</span>
+			<button class="sectionButton" style="float: right;">Request refill</button>
+		  </div>
+		</div>
       <!-- InstanceEndEditable --></td>
     </tr>
     <tr>
