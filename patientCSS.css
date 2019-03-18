@@ -52,6 +52,10 @@ button{
 	
 }
 
+.signOut{
+	padding: 15px;
+}
+
 .appTitle{
 	
 	font-size: 35px;
@@ -138,3 +142,6 @@ button{
 	font-weight: 900;
 
 }
+
+/* User Profile Page */
+
