@@ -10,6 +10,17 @@ body{
 	font-family: "Open Sans", Arial, "sans-serif";
 }
 
+.whiteContainer{
+	background-color: white;
+	margin: 20px 40px 20px 40px;
+	padding: 5px 10px 5px 10px;
+}
+
+.justifyCenter{
+	display: flex;
+	align-items: center;
+}
+
 table{
 	background-color: white;
 	margin: 1em auto;
@@ -141,4 +152,12 @@ button{
 }
 
 /* User Profile Page */
+
+/* Login/Signup */
+
+.skinnyForm{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
 
