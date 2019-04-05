@@ -125,20 +125,46 @@
                       <strong>Yesterday's appointment</strong>
                       <p>Dr. Mitchell</p>
                       <p>Mr. Doe, thank you for your prompt reply to my message. Regarding your question, your lab results should show up in the next 3 business days.</p>
-                      <button type="button" class="btn btn-primary">reply</button>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
                     </div>
+                    <!--Modal-->
+                    <div class="modal fade" id="replyMessage" tabindex="-1" role="dialog" aria-labelledby="replyLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="replyLabel">Reply</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="replyLabel">Message</label>
+                                        <textarea class="form-control" id="replyTextArea" rows="3"></textarea>
+                                      </div>  
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
+                              <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--End Modal-->
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                       <strong>Your Prescription Has Been Refilled</strong>
                       <p>Equinox Prescription Services</p>
                       <p>Prescription Penicillin has been fulfilled. If you have any questions please reach out to your doctor or nurse.</p>
-                      <button type="button" class="btn btn-primary">reply</button>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
                     </div>
         
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                       <strong>Yesterday's appointment</strong>
                       <p>Dr. Johnson</p>
                       <p>Mr. Doe, thank you for your prompt reply to my message. Regarding your question, your lab results should show up in the next 3 business days.</p>
-                      <button type="button" class="btn btn-primary">reply</button>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
                     </div>
                   </div>
                 </div>
