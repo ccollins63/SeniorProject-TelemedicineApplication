@@ -5,8 +5,9 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>PatientView</title>
 <!-- InstanceEndEditable -->
-<link href="patientCSS.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+<link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceEndEditable -->
 </head>
 
@@ -82,17 +83,23 @@
           </tbody>
       </table>
       <table class="patientbody" width="90%" border="2" cellpadding="0">
+        
         <tbody>
           <tr>
             <td colspan="2">
-              
+                <div class="alert alert-primary" role="alert" style="display: flex; justify-content: space-between;">
+                    Upcoming video call in 5 minutes. 
+                    <button type="button" class="btn btn-primary" style="max-width: 100px">Check in</button>
+                  </div>
               <h3>Appointments</h3>
               
               </td>
             </tr>
           <tr>
-            <td><p>You have 2 upcoming appointments.</p></td>
-            <td><button class="sectionButton">View Upcoming</button></td>
+            <td><p>You have two upcoming appointments.</p></td>
+            <td>
+                <button class="sectionButton" onclick="location.href='appointment.html'" type="button">View Upcoming</button>
+            </td>
             </tr>
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->
@@ -100,8 +107,10 @@
             <td colspan="2"><h3>Prescriptions</h3></td>
             </tr>
           <tr>
-            <td><p>You have 2 upcoming appointments.</p></td>
-            <td><button class="sectionButton">View Prescriptions</button></td>
+            <td><p>You have two upcoming appointments.</p></td>
+            <td>
+                <button class="sectionButton" onclick="location.href='prescription.html'" type="button">View Prescriptions</button>
+            </td>
             </tr>
           <!--End of Section 2 Prescriptions-->
           <!--Section 3 Messages-->
@@ -110,7 +119,9 @@
             </tr>
           <tr>
             <td><p>You have 2 messages pending.</p></td>
-            <td><button class="sectionButton">View Messages</button></td>
+            <td>
+                <button class="sectionButton" onclick="location.href='messages.html'" type="button">View Messages</button>
+            </td>
           </tr>
           <!--End of Section 3 Messages-->
           </tbody>

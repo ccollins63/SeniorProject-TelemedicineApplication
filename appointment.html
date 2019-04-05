@@ -5,8 +5,9 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>PatientAppointmentView</title>
 <!-- InstanceEndEditable -->
-<link href="patientCSS.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+<link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
 </head>
@@ -81,19 +82,7 @@
           <tr class="banner">
            
            <td class="appTitle">Appointments</td>
-			  
-           
-		<!--- Replacing this
-           <td width="22%"><img src="images/Ali.jpeg" alt="Ali" height="150px" width="150px" ></td> 
-            
-             <td width="78%" class="welcome" >
-             
-             	<p id="a">Welcome, John Doe </p>
-            
-                <p id="b"> Sign Out </p>
-                
-                </td>
-         	-->
+
            </tr>
         </tbody>
       </table>
@@ -112,10 +101,58 @@
            
             <td>
              
-
-            <button class="sectionButton">Schedule an Appointment</button>
-            
-   
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Schedule Appointment
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Schedule your Appointment</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                       What date works for you? <input type="date" name="bday"><br>
+                       What time? 
+                        <select>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                        :
+                        <select>
+                          <option value="00">00</option>
+                          <option value="30">30</option>
+                        </select>
+                        <select>
+                          <option value="am">AM</option>
+                          <option value="pm">PM</option>
+                        </select>
+                        <br>
+                        Office hours are 9am to 6pm
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Submit Request</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           
             </td>
             
@@ -190,4 +227,7 @@
   </tbody>
 </table>
 </body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
 <!-- InstanceEnd --></html>

@@ -21,6 +21,7 @@ td{
 }
 
 h3{
+	font-weight: 400;
 	color: skyblue;
 	border-bottom: solid 2px;
 	padding: 5px;
@@ -117,10 +118,6 @@ button{
 }*/
 
 
-
-.banner img{
-	padding: 10px;
-}
 
 /* Prescription Page */
 
