@@ -1,8 +1,17 @@
 <?php
-DEFINE ('DB_USER', 'ccollins');
-DEFINE ('DB_PSWD', 'Password1');
-DEFINE ('DB_HOST', 'equinoxhp.com');
-DEFINE ('DB_NAME', 'Database');
+function connectDB()
+{
+    $server = "localhost";
+    $db="EquinoxHP";
+	$user="adminEquinox";
+	$pwd="Password#123";
+	$connection=new mysqli($server,$user,$pwd, $db);
+	return $connection;
+}
 
-$dbconnect = mysqli_connect(DB_HOST, DB_USER, DB_PSWD, DB_NAME);
+function closeConnection($result, $connection)
+{
+    $result->close();
+    $connection->close();
+}
 ?>
