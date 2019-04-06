@@ -32,20 +32,14 @@
             <td>
    
                 <p>
-                    <a href="index.html">
+                    <a href="doctorIndex.html">
                       <button>Home</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="appointment.html">
+                    <a href="doctorAppointment.html">
                       <button>Appointments</button>
-                    </a>
-                  </p>
-    
-                  <p>
-                    <a href="prescription.html">
-                      <button>Prescriptions</button>
                     </a>
                   </p>
     
@@ -57,7 +51,13 @@
     
                   <p>
                     <a href="profile.html">
-                      <button>Patient Profile</button>
+                      <button>New Patient</button>
+                    </a>
+                  </p>
+    
+                  <p>
+                    <a href="video.html">
+                      <button>Video Call</button>
                     </a>
                   </p>
             	
@@ -76,7 +76,7 @@
         <tbody>
           <tr class="banner">
             <td width="22%"><img src="images/man.png" alt="man" height="100px" width="100px" ></td>
-            <td width="78%" class="signout"><p id="a">Welcome, John Doe </p>
+            <td width="78%" class="signout"><p id="a">Welcome, Dr. John Doe </p>
               <p id="b"> Sign Out </p></td>
             </tr>
           </tbody>
@@ -91,8 +91,8 @@
               </td>
             </tr>
           <tr>
-            <td><p>You have 2 upcoming appointments.</p></td>
-            <td><button class="sectionButton">View Upcoming</button></td>
+            <td><p>Your next appointment is with Jane Doe at 4:30pm.</p></td>
+            <td><button class="sectionButton" onclick="location.href='doctorAppointment.html'" type="button">View all appointments</button></td>
             </tr>
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->

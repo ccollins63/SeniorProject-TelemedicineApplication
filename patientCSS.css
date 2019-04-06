@@ -161,3 +161,13 @@ button{
 	display: block;
 }
 
+/*Appointment View*/
+.buttonContainer{
+	display: flex;
+	justify-content: center;
+}
+
+.sideButtons{
+	max-width: 200px;
+	margin: 15px 7px 15px 7px;
+}
