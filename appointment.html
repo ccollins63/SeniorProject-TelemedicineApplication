@@ -119,31 +119,13 @@
                     <div class="modal-body">
                        What date works for you? <input type="date" name="bday"><br>
                        What time? 
-                        <select>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                        </select>
-                        :
-                        <select>
-                          <option value="00">00</option>
-                          <option value="30">30</option>
-                        </select>
-                        <select>
-                          <option value="am">AM</option>
-                          <option value="pm">PM</option>
-                        </select>
+                       <input type="time" id="time" name="time" min="9:00" max="18:00" required>
                         <br>
-                        Office hours are 9am to 6pm
+                        (Office hours are 9am to 6pm)<br><br>
+                        <div class="form-group">
+                            <label for="extraNotes">Extra Notes</label>
+                            <textarea class="form-control" id="extraNotes" rows="3"></textarea>
+                        </div>
                       
                     </div>
                     <div class="modal-footer">
@@ -170,8 +152,8 @@
                
             <td id="rightInfoCenter">
             
-             <p>Edit &emsp; View</p>
-              <p>Edit &emsp; View</p>
+             <p><a href="appointmentPatientView.html">View</a></p>
+              <p>View</p>
               
               </td>
           </tr>
