@@ -16,8 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <a href="login.php"><img src="images/logo.png" width="150">
-</a>
+                    <a href="login.php"><img src="images/logo.png" width="150"></a>
                 </div>
                 <div class="col, justifyCenter">
                     <h1>Equinox Medicine Health Portal</h1>

@@ -27,7 +27,7 @@ $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
  
   <tbody>
     <tr>
-      <td class="companylogo"><img src="images/logo.png" width="150"></td>
+    <td class="companylogo"><a href="index.php"><img src="images/logo.png" width="150"></a></td>
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
     </tr>
    

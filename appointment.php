@@ -25,7 +25,7 @@ $userLastName = "SELECT LastName FROM User WHERE PatientID = UserID";
  
   <tbody>
     <tr>
-      <td class="companylogo"><img src="images/logo.png" width="150"></td>
+      <td class="companylogo"><a href="index.php"><img src="images/logo.png" width="150"></a></td>
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
           <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
