@@ -16,7 +16,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <img src="images/logo.png" width="150">
+                    <a href="login.php"><img src="images/logo.png" width="150">
+</a>
                 </div>
                 <div class="col, justifyCenter">
                     <h1>Equinox Medicine Health Portal</h1>
@@ -67,7 +68,7 @@
                     <p>Equinox Medicine Information Systems, Inc.</p>
                     <p>795 Main St.</p>
                     <p>Kennesaw, GA 30102</p>
-                    <p>http://www.equinoxhp.com (Opens in new window)</p>
+                    <p>http://www.equinoxhp.com</p>
                     <p>If you have any questions about this Privacy Policy, the practices of this site or your dealings with this web site, please contact PrivacyOfficer@equinoxhp.com.  </p>   
                 </div>
             </div>
