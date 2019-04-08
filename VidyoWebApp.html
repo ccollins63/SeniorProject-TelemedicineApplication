@@ -1,7 +1,7 @@
 
 <html>
 <head>
-  <title>Video Appointment</title>
+  <title>Vidyo Sample</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -32,9 +32,9 @@
 
       vidyoConnector.Connect({
         host:"prod.vidyo.io",
-        token:"cHJvdmlzaW9uAHVzZXIxQDFjMWU5Yi52aWR5by5pbwA2MzcyMTkxNTIyMwAAMTc3MDBjYmRlNWNmNmQ3MTQ5YWI1NDc3NDE4NjZkMjkwYmViY2RlOTk2ZGIxMWRkZDg5MWI5MzRkYzM5Mzg0OTZhN2YyMWEzN2VlOWQzN2Y0MGUzMDlmZjUxNjM4OTdk",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
+        token:"cHJvdmlzaW9uAHVzZXIxQDFjMWU5Yi52aWR5by5pbwA2MzcyMTk2OTg1MQAANGE2MWQxMWJkMmQwNDBhNTg1MmU3NThhZmVlZDhiYmJlZGVlN2YyZWRjYmUzZWY2MDRjY2Y2MTVmMmNjMTE2MWMyYmNhMDk5NTIzZGZhMmEyZTdjMjVlMDU0OTdkMDQ0",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
         displayName:"Jibin",
-        resourceId:"demoroom",
+        resourceId:"room2",
         onSuccess: function(){
           console.log("Connected!! YAY!");
         },
@@ -48,7 +48,7 @@
     }
 
   </script>
-  
+
   <script src="https://static.vidyo.io/latest/javascript/VidyoClient/VidyoClient.js?onload=onVidyoClientLoaded"></script>
  <h3>Video Chat Application</h3>
  <button onclick="joinCall()">Connect</button>
