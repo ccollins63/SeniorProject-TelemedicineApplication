@@ -1,11 +1,20 @@
 <?php
 include 'connect-mysql.php';
 $conn = connectDB();
+<<<<<<< HEAD:index.php
 $userFirstName      = "SELECT FirstName FROM User WHERE PatientID = UserID";
 $userLastName       = "SELECT LastName FROM User WHERE PatientID = UserID";
 $numOfAppointments  = "SELECT COUNT(*) FROM Appointment WHERE PatientID = UserID";
 $numOfPrescriptions = "SELECT COUNT(*) FROM Prescription WHERE PatientID = UserID";
 $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
+=======
+$userFirstName = "SELECT FirstName FROM User WHERE PatientID == UserID";
+$userLastName = "SELECT LastName FROM User WHERE PatientID == UserID";
+$numOfAppointments = "SELECT COUNT(*) FROM Appointment WHERE PatientID == UserID";
+$numOfPrescriptions = "SELECT COUNT(*) FROM Prescription WHERE PatientID == UserID";
+$numOfMessages = "SELECT COUNT(*) FROM Messages WHERE PatientID == UserID";
+
+>>>>>>> 349613514966cde0ec9c9ea1d498c5269e562a34:index.php
 ?>
 
 <!doctype html>
@@ -87,8 +96,13 @@ $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
         <tbody>
           <tr class="banner">
             <td width="22%"><img src="images/man.png" alt="man" height="100px" width="100px" ></td>
+<<<<<<< HEAD:index.php
             <td width="78%" class="signout"><p id="a">Welcome, <?php echo "$userFirstName $userLastName"; ?> </p>
               <a href="login.php">Sign Out</a></td>
+=======
+            <td width="78%" class="signout"><p id="a">Welcome, $userFirstName $userLastName </p>
+              <p id="b"> Sign Out </p></td>
+>>>>>>> 349613514966cde0ec9c9ea1d498c5269e562a34:index.php
             </tr>
           </tbody>
       </table>
@@ -106,7 +120,11 @@ $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
               </td>
             </tr>
           <tr>
+<<<<<<< HEAD:index.php
             <td><p>You have <?php echo "$numOfAppointments"; ?> upcoming appointments.</p></td>
+=======
+            <td><p>You have $numOfAppointments upcoming appointments.</p></td>
+>>>>>>> 349613514966cde0ec9c9ea1d498c5269e562a34:index.php
             <td>
                 <button class="sectionButton" onclick="location.href='appointment.php'" type="button">View Upcoming</button>
             </td>
@@ -117,7 +135,11 @@ $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
             <td colspan="2"><h3>Prescriptions</h3></td>
             </tr>
           <tr>
+<<<<<<< HEAD:index.php
             <td><p>You have <?php echo "$numOfPrescriptions"; ?> upcoming prescriptions.</p></td>
+=======
+            <td><p>You have $numOfPrescriptions upcoming prescriptions.</p></td>
+>>>>>>> 349613514966cde0ec9c9ea1d498c5269e562a34:index.php
             <td>
                 <button class="sectionButton" onclick="location.href='prescription.php'" type="button">View Prescriptions</button>
             </td>
@@ -128,7 +150,11 @@ $numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
             <td colspan="2"><h3>Messages</h3></td>
             </tr>
           <tr>
+<<<<<<< HEAD:index.php
             <td><p>You have <?php echo "$numOfMessages"; ?> messages pending.</p></td>
+=======
+            <td><p>You have $numOfMessages messages pending.</p></td>
+>>>>>>> 349613514966cde0ec9c9ea1d498c5269e562a34:index.php
             <td>
                 <button class="sectionButton" onclick="location.href='messages.php'" type="button">View Messages</button>
             </td>
