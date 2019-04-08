@@ -1,3 +1,10 @@
+<?php
+include 'connect-mysql.php';
+$conn = connectDB();
+$userFirstName = "SELECT FirstName FROM User WHERE PatientID = UserID";
+$userLastName = "SELECT LastName FROM User WHERE PatientID = UserID";
+?>
+
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -22,8 +29,8 @@
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
           <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-          <span>John Doe</span><br>
-          <a href="#">Sign Out</a>
+          <span>$userFirstName $userLastName</span><br>
+          <a href="login.php">Sign Out</a>
       </td>
     </tr>
    
@@ -39,31 +46,31 @@
             <td>
    
                     <p>
-                            <a href="index.html">
+                            <a href="index.php">
                               <button>Home</button>
                             </a>
                           </p>
             
                           <p>
-                            <a href="appointment.html">
+                            <a href="appointment.php">
                               <button>Appointments</button>
                             </a>
                           </p>
             
                           <p>
-                            <a href="prescription.html">
+                            <a href="prescription.php">
                               <button>Prescriptions</button>
                             </a>
                           </p>
             
                           <p>
-                            <a href="messages.html">
+                            <a href="messages.php">
                               <button>Messages</button>
                             </a>
                           </p>
             
                           <p>
-                            <a href="profile.html">
+                            <a href="profile.php">
                               <button>Patient Profile</button>
                             </a>
                           </p>
@@ -83,7 +90,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-5">
-                    <h4>Patient Name:</h4> <span>John Doe</span>
+                    <h4>Patient Name:</h4> <span>$userFirstName $userLastName</span>
                     <h4>Extra notes:</h4> <span>I want to talk about my stomach pains.</span>
                 </div>
                 <div class="col-5">

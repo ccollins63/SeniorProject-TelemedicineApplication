@@ -1,3 +1,13 @@
+<?php
+include 'connect-mysql.php';
+$conn = connectDB();
+$userFirstName      = "SELECT FirstName FROM User WHERE PatientID = UserID";
+$userLastName       = "SELECT LastName FROM User WHERE PatientID = UserID";
+$numOfAppointments  = "SELECT COUNT(*) FROM Appointment WHERE PatientID = UserID";
+$numOfPrescriptions = "SELECT COUNT(*) FROM Prescription WHERE PatientID = UserID";
+$numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = UserID";
+?>
+
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -33,31 +43,31 @@
             <td>
    
                 <p>
-                    <a href="index.html">
+                    <a href="index.php">
                       <button>Home</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="appointment.html">
+                    <a href="appointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="prescription.html">
+                    <a href="prescription.php">
                       <button>Prescriptions</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="messages.html">
+                    <a href="messages.php">
                       <button>Messages</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="profile.html">
+                    <a href="profile.php">
                       <button>Patient Profile</button>
                     </a>
                   </p>
@@ -77,8 +87,8 @@
         <tbody>
           <tr class="banner">
             <td width="22%"><img src="images/man.png" alt="man" height="100px" width="100px" ></td>
-            <td width="78%" class="signout"><p id="a">Welcome, John Doe </p>
-              <p id="b"> Sign Out </p></td>
+            <td width="78%" class="signout"><p id="a">Welcome, <?php echo "$userFirstName $userLastName"; ?> </p>
+              <a href="login.php">Sign Out</a></td>
             </tr>
           </tbody>
       </table>
@@ -96,9 +106,9 @@
               </td>
             </tr>
           <tr>
-            <td><p>You have two upcoming appointments.</p></td>
+            <td><p>You have <?php echo "$numOfAppointments"; ?> upcoming appointments.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='appointment.html'" type="button">View Upcoming</button>
+                <button class="sectionButton" onclick="location.href='appointment.php'" type="button">View Upcoming</button>
             </td>
             </tr>
           <!--End of Section 1 Appointments-->
@@ -107,9 +117,9 @@
             <td colspan="2"><h3>Prescriptions</h3></td>
             </tr>
           <tr>
-            <td><p>You have two upcoming appointments.</p></td>
+            <td><p>You have <?php echo "$numOfPrescriptions"; ?> upcoming prescriptions.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='prescription.html'" type="button">View Prescriptions</button>
+                <button class="sectionButton" onclick="location.href='prescription.php'" type="button">View Prescriptions</button>
             </td>
             </tr>
           <!--End of Section 2 Prescriptions-->
@@ -118,9 +128,9 @@
             <td colspan="2"><h3>Messages</h3></td>
             </tr>
           <tr>
-            <td><p>You have 2 messages pending.</p></td>
+            <td><p>You have <?php echo "$numOfMessages"; ?> messages pending.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='messages.html'" type="button">View Messages</button>
+                <button class="sectionButton" onclick="location.href='messages.php'" type="button">View Messages</button>
             </td>
           </tr>
           <!--End of Section 3 Messages-->

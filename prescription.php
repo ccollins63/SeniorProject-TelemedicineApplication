@@ -1,3 +1,14 @@
+<?php
+include 'connect-mysql.php';
+$conn = connectDB();
+$userFirstName        = "SELECT FirstName FROM User WHERE PatientID = UserID";
+$userLastName         = "SELECT LastName FROM User WHERE PatientID = UserID";
+$prescriptionName     = "SELECT PrescriptionName FROM Prescription WHERE PatientID = UserID";
+$prescriptionNotes    = "SELECT PrescriptionNotes FROM Prescription WHERE PatientID = UserID";
+$prescriptionQuantity = "SELECT PrescriptionQuantity FROM Prescription WHERE PatientID = UserID";
+$prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE PatientID = UserID";
+?>
+
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -23,8 +34,8 @@
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
         <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-        <span>John Doe</span><br>
-        <a href="#">Sign Out</a>
+        <span>$userFirstName $userLastName</span><br>
+        <a href="login.php">Sign Out</a>
       </td>
     </tr>
    
@@ -39,31 +50,31 @@
           <tr class="navcenter">
             <td>
                 <p>
-                    <a href="index.html">
+                    <a href="index.php">
                       <button>Home</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="appointment.html">
+                    <a href="appointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="prescription.html">
+                    <a href="prescription.php">
                       <button>Prescriptions</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="messages.html">
+                    <a href="messages.php">
                       <button>Messages</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="profile.html">
+                    <a href="profile.php">
                       <button>Patient Profile</button>
                     </a>
                   </p>
@@ -97,11 +108,11 @@
 	  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Ibuprofen</h5>
-		  	<p>Prescribed on: 02/12/12</p>
+		  	<p>Prescribed on: $prescriptionDate</p>
 		  </div>
 		  <div>
-		    <p>Take one daily as needed for pain</p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: 800mg</span>
+		    <p>$prescriptionNotes</p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: $prescriptionQuantity</span>
       <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
         Request refill
       </button>
