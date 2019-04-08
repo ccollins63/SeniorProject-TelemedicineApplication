@@ -134,7 +134,11 @@
                   <input class="form-check-input" type="checkbox" id="termCheck"
                     required>
                     <label class="form-check-label" for="termCheck">
+<<<<<<< HEAD
                     <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>*
+=======
+                        <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>*
+>>>>>>> b265e644cff71cb60af1463cf8e73ef97b24be7f
                     </label>
                   <div class="invalid-feedback">
                     You must agree before submitting.
