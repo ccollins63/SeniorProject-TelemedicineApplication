@@ -1,11 +1,25 @@
 <?php
 include 'connect-mysql.php';
 $conn = connectDB();
-$userFirstName    = "SELECT FirstName FROM User WHERE PatientID = UserID";
-$userLastName     = "SELECT LastName FROM User WHERE PatientID = UserID";
-$userEmail        = "SELECT Email FROM User WHERE PatientID = UserID";
-$userBirthday     = "SELECT DateOfBirth FROM User WHERE PatientID = UserID";
-$userPhoneNumber  = "SELECT PhoneNumber FROM User WHERE PatientID = UserID";
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+        $userEmail = $row['Email'];
+        $userBirthday = $row['DateOfBirth'];
+        $userPhoneNumber = $row['PhoneNumber'];
+    }
+}
 ?>
 
 <!doctype html>
@@ -30,12 +44,16 @@ $userPhoneNumber  = "SELECT PhoneNumber FROM User WHERE PatientID = UserID";
 
 <table width="90%" border="0" cellpadding="5">
  
-  <tbody>
+<tbody>
     <tr>
     <td class="companylogo"><a href="index.php"><img src="images/logo.png" width="150"></a></td>
-      <td class="EquinoxTitle">Equinox Medicine Health Portal</td>
+      <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
+      <td align="center" class="signOut">
+            <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
+            <span><?php echo "$userFirstName $userLastName"; ?></span><br>
+            <a href="login.php">Sign Out</a>
+          </td>
     </tr>
-   
     
     
     <tr>
@@ -95,7 +113,7 @@ $userPhoneNumber  = "SELECT PhoneNumber FROM User WHERE PatientID = UserID";
         </tbody>
       </table>
       <!--Patient Profile-->
-      <div style="padding: 15px; text-align: center;">
+      <div style="padding: 5px; text-align: center;">
         <img src="images/man.png" style="max-width: 200px; margin: auto; display: block;">
       </div>
       <form style="margin: 0 auto; width: 50%; text-align: center;">
@@ -130,7 +148,7 @@ $userPhoneNumber  = "SELECT PhoneNumber FROM User WHERE PatientID = UserID";
                     </div>
                   </div>
           </form>
-            <button class="sectionButton" onclick="location.href='profile-edit.html'" type="button">Edit Profile</button><br>
+            <button class="sectionButton" onclick="location.href='profile-edit.php'" type="button">Edit Profile</button><br>
             <button class="sectionButton" onclick="location.href='login.php'" type="button">Sign Out</button>
       <!-- InstanceEndEditable --></td>
     </tr>

@@ -1,13 +1,6 @@
 <?php
 include 'connect-mysql.php';
 $conn = connectDB();
-/*
-$userFirstName      = "SELECT FirstName FROM User WHERE PatientID = '$_SESSION[userID]'";
-$userLastName       = "SELECT LastName FROM User WHERE PatientID = '$_SESSION[userID]'";
-$numOfAppointments  = "SELECT COUNT(*) FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
-$numOfPrescriptions = "SELECT COUNT(*) FROM Prescription WHERE PatientID = '$_SESSION[userID]'";
-$numOfMessages      = "SELECT COUNT(*) FROM Messages WHERE PatientID = '$_SESSION[userID]'";
-*/
 
 if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
 
@@ -24,6 +17,42 @@ if($result->num_rows > 0)
         $userLastName = $row['LastName'];
     }
 }
+
+$query = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+$result = $conn->query($query);
+if ($result) 
+  { 
+    // it return number of rows in the table. 
+    $numOfAppointments = mysqli_num_rows($result); 
+  } 
+  else
+  {
+    $numOfAppointments = 0;
+  }
+
+$query = "SELECT * FROM Prescription WHERE PatientID = '$_SESSION[userID]'";
+$result = $conn->query($query);
+if ($result) 
+  { 
+    // it return number of rows in the table. 
+    $numOfPrescriptions = mysqli_num_rows($result); 
+  } 
+  else
+  {
+    $numOfPrescriptions = 0;
+  }
+
+  $query = "SELECT * FROM Messages WHERE PatientID = '$_SESSION[userID]'";
+  $result = $conn->query($query);
+  if ($result) 
+  { 
+    // it return number of rows in the table. 
+      $numOfMessages = mysqli_num_rows($result); 
+  } 
+   else
+  {
+    $numOfMessages = 0;
+  }
 ?>
 
 <!doctype html>

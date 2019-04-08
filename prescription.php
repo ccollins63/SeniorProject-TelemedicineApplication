@@ -1,8 +1,22 @@
 <?php
 include 'connect-mysql.php';
 $conn = connectDB();
-$userFirstName        = "SELECT FirstName FROM User WHERE PatientID = UserID";
-$userLastName         = "SELECT LastName FROM User WHERE PatientID = UserID";
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+    }
+}
 $prescriptionName     = "SELECT PrescriptionName FROM Prescription WHERE PatientID = UserID";
 $prescriptionNotes    = "SELECT PrescriptionNotes FROM Prescription WHERE PatientID = UserID";
 $prescriptionQuantity = "SELECT PrescriptionQuantity FROM Prescription WHERE PatientID = UserID";
@@ -108,11 +122,11 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
 	  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Ibuprofen</h5>
-		  	<p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
+		  	<p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
 		  </div>
 		  <div>
-		    <p><?php echo "$prescriptionNotes"; ?></p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+		    <p><?php echo '$prescriptionNotes'; ?></p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
       <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
         Request refill
       </button>
@@ -142,11 +156,11 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
 		  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Oxycodone</h5>
-		  	<p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
+		  	<p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
 		  </div>
 		  <div>
-		    <p><?php echo "$prescriptionNotes"; ?></p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+		    <p><?php echo '$prescriptionNotes'; ?></p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
 			<button class="sectionButton" style="float: right;" data-toggle="modal" data-target="#requestRefill">Request refill</button>
 		  </div>
 		</div>

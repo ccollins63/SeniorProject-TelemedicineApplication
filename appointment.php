@@ -1,8 +1,22 @@
 <?php
 include 'connect-mysql.php';
 $conn = connectDB();
-$userFirstName = "SELECT FirstName FROM User WHERE PatientID = UserID";
-$userLastName = "SELECT LastName FROM User WHERE PatientID = UserID";
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+    }
+}
 ?>
 
 <!doctype html>

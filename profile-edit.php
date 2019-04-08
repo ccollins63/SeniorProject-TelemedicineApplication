@@ -34,31 +34,31 @@
           <tr class="navcenter">
             <td>
               <p>
-                <a href="index.html">
+                <a href="index.php">
                   <button>Home</button>
                 </a>
               </p>
 
               <p>
-                <a href="appointment.html">
+                <a href="appointment.php">
                   <button>Appointments</button>
                 </a>
               </p>
 
               <p>
-                <a href="prescription.html">
+                <a href="prescription.php">
                   <button>Prescriptions</button>
                 </a>
               </p>
 
               <p>
-                  <a href="messages.html">
+                  <a href="messages.php">
                     <button>Messages</button>
                   </a>
                 </p>
 
               <p>
-                <a href="profile.html">
+                <a href="profile.php">
                   <button>Patient Profile</button>
                 </a>
               </p>
