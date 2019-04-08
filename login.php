@@ -39,7 +39,7 @@
                                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button><br><br>
-                                <p>No account? <a href="signUp.html">Sign up here.</a></p>
+                                <p>No account? <a href="signUp.php">Sign up here.</a></p>
                         </form>
                 </div>
             </div>

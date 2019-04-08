@@ -134,7 +134,7 @@
                   <input class="form-check-input" type="checkbox" id="termCheck"
                     required>
                   <label class="form-check-label" for="termCheck">
-                    <a href="#">I agree to the terms and conditions.</a>*
+                    <a href="terms-and-conditions.php">I agree to the terms and conditions.</a>*
                   </label>
                   <div class="invalid-feedback">
                     You must agree before submitting.
@@ -142,7 +142,7 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">Sign in</button><br><br>
-              <p>Already have an account? <a href="login.html">Login here.</a></p>
+              <p>Already have an account? <a href="login.php">Login here.</a></p>
             </form>
           </div>
         </div>
