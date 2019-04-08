@@ -133,9 +133,9 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="termCheck"
                     required>
-                  <label class="form-check-label" for="termCheck">
-                    <a href="terms-and-conditions.php">I agree to the terms and conditions.</a>*
-                  </label>
+                    <label class="form-check-label" for="termCheck">
+                        <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>*
+                    </label>
                   <div class="invalid-feedback">
                     You must agree before submitting.
                   </div>
