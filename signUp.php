@@ -29,47 +29,52 @@
         </div>
         <div class="row">
           <div class="col, skinnyForm">
-            <form>
+            <form action="signUpSubmit.php" method="post">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">First Name*</label>
-                  <input type="text" class="form-control" id="inputName"
+                  <input type="text" class="form-control" id="inputName" name="inputName"
                     placeholder="First name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputLastName">Last Name*</label>
-                  <input type="text" class="form-control" id="inputLastName"
+                  <input type="text" class="form-control" id="inputLastName" name="inputLastName"
                     placeholder="Last name" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="emailAddress">Email address*</label>
-                <input type="email" class="form-control" id="emailAddress"
+                <input type="email" class="form-control" id="emailAddress" name="emailAddress"
                   placeholder="name@example.com" required>
+              </div>
+                <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" class="form-control" id="password" name="password"
+                  placeholder="Password123" required>
               </div>
               <div class="form-group">
                 <label for="key">Generated Key*</label>
-                <input type="text" class="form-control" id="key"
-                  placeholder="Given to you by your doctor or admin" required>
+                <input type="text" class="form-control" id="key" name="key"
+                  placeholder="Given to you by your doctor or admin">
               </div>
               <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress"
+                <input type="text" class="form-control" id="inputAddress" name="inputAddress"
                   placeholder="1234 Main St">
               </div>
               <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2"
+                <input type="text" class="form-control" id="inputAddress2" name="inputAddress2"
                   placeholder="Apartment, studio, or floor">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
+                  <input type="text" class="form-control" id="inputCity" name="inputCity">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
+                  <select id="inputState" name="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="AL">AL</option>
                     <option value="AK">AK</option>
@@ -126,7 +131,7 @@
                 </div>
                 <div class="form-group col-md-2">
                   <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                  <input type="text" class="form-control" id="inputZip" name="inputZip">
                 </div>
               </div>
               <div class="form-group">
@@ -134,11 +139,8 @@
                   <input class="form-check-input" type="checkbox" id="termCheck"
                     required>
                     <label class="form-check-label" for="termCheck">
-<<<<<<< HEAD
-                    <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>*
-=======
-                        <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>*
->>>>>>> b265e644cff71cb60af1463cf8e73ef97b24be7f
+                    <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>
+                        <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>
                     </label>
                   <div class="invalid-feedback">
                     You must agree before submitting.
@@ -203,8 +205,7 @@
                   </div>
                   <!--End Modal-->
                 </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Sign in</button><br><br>
+              <button type="submit" class="btn btn-primary">Sign Up</button><br><br>
               <p>Already have an account? <a href="login.php">Login here.</a></p>
             </form>
           </div>
