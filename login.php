@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,6 +8,9 @@
     <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
     <link href="patientCSS.css" rel="stylesheet" type="text/css">
 
+    <?php
+    session_start();
+    ?>
 </head>
 
 <body>
@@ -29,14 +31,17 @@
             </div>
             <div class="row">
                 <div class="col, skinnyForm" style="min-width: 300px;">
-                        <form>
+                        <form action="loginSubmit.php" method="post">
+                            <div class="form-group" id="failedLoginMessage" style="visibility:hidden">
+                                <label for="exampleLoginFailed" style="color:red">Incorrect credentials. Please try again.</label>
+                            </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Email address</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Password</label>
-                                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" name="inputPassword" placeholder="Password" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button><br><br>
                                 <p>No account? <a href="signUp.php">Sign up here.</a></p>

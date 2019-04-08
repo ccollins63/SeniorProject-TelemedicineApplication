@@ -55,7 +55,11 @@
               <div class="form-group">
                 <label for="key">Generated Key*</label>
                 <input type="text" class="form-control" id="key" name="key"
+<<<<<<< HEAD
                   placeholder="Given to you by your doctor or admin">
+=======
+                  placeholder="Given to you by your doctor or admin" required>
+>>>>>>> 37fc7ff133998ce214d56e304ff6ec82899eefeb
               </div>
               <div class="form-group">
                 <label for="inputAddress">Address</label>
