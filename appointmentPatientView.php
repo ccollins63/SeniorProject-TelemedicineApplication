@@ -29,7 +29,7 @@ $userLastName = "SELECT LastName FROM User WHERE PatientID = UserID";
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
           <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-          <span>$userFirstName $userLastName</span><br>
+          <span><?php echo "$userFirstName $userLastName"; ?></span><br>
           <a href="login.php">Sign Out</a>
       </td>
     </tr>
@@ -90,7 +90,7 @@ $userLastName = "SELECT LastName FROM User WHERE PatientID = UserID";
             </div>
             <div class="row justify-content-center">
                 <div class="col-5">
-                    <h4>Patient Name:</h4> <span>$userFirstName $userLastName</span>
+                    <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
                     <h4>Extra notes:</h4> <span>I want to talk about my stomach pains.</span>
                 </div>
                 <div class="col-5">

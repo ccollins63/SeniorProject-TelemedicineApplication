@@ -34,7 +34,7 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
         <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-        <span>$userFirstName $userLastName</span><br>
+        <span><?php echo "$userFirstName $userLastName"; ?></span><br>
         <a href="login.php">Sign Out</a>
       </td>
     </tr>
@@ -108,11 +108,11 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
 	  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Ibuprofen</h5>
-		  	<p>Prescribed on: $prescriptionDate</p>
+		  	<p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
 		  </div>
 		  <div>
-		    <p>$prescriptionNotes</p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: $prescriptionQuantity</span>
+		    <p><?php echo "$prescriptionNotes"; ?></p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
       <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
         Request refill
       </button>
@@ -142,11 +142,11 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
 		  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Oxycodone</h5>
-		  	<p>Prescribed on: 02/12/12</p>
+		  	<p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
 		  </div>
 		  <div>
-		    <p>Take every 6 hours until pain subsides</p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: 80mg</span>
+		    <p><?php echo "$prescriptionNotes"; ?></p>
+			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
 			<button class="sectionButton" style="float: right;" data-toggle="modal" data-target="#requestRefill">Request refill</button>
 		  </div>
 		</div>

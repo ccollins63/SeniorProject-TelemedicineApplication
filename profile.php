@@ -1,3 +1,13 @@
+<?php
+include 'connect-mysql.php';
+$conn = connectDB();
+$userFirstName    = "SELECT FirstName FROM User WHERE PatientID = UserID";
+$userLastName     = "SELECT LastName FROM User WHERE PatientID = UserID";
+$userEmail        = "SELECT Email FROM User WHERE PatientID = UserID";
+$userBirthday     = "SELECT DateOfBirth FROM User WHERE PatientID = UserID";
+$userPhoneNumber  = "SELECT PhoneNumber FROM User WHERE PatientID = UserID";
+?>
+
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -38,31 +48,31 @@
             <td>
    
                 <p>
-                    <a href="index.html">
+                    <a href="index.php">
                       <button>Home</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="appointment.html">
+                    <a href="appointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="prescription.html">
+                    <a href="prescription.php">
                       <button>Prescriptions</button>
                     </a>
                   </p>
     
                   <p>
-                      <a href="messages.html">
+                      <a href="messages.php">
                         <button>Messages</button>
                       </a>
                     </p>
     
                   <p>
-                    <a href="profile.html">
+                    <a href="profile.php">
                       <button>Patient Profile</button>
                     </a>
                   </p>
@@ -90,26 +100,38 @@
       </div>
       <form style="margin: 0 auto; width: 50%; text-align: center;">
             <div class="form-group row">
-              <label for="staticName" class="col-sm-2 col-form-label">Full Name</label>
+              <label for="staticFirstName" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticName" value="John Doe">
+                <input type="text" readonly class="form-control-plaintext" id="staticName" value="<?php echo htmlspecialchars($userFirstName); ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticName" class="col-sm-2 col-form-label">Last Name</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticName" value="<?php echo htmlspecialchars($userLastName); ?>">
               </div>
             </div>
             <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email Address</label>
                     <div class="col-sm-10">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@email.com">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo htmlspecialchars($userEmail); ?>">
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label for="staticPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticPhoneNumber" value="<?php echo htmlspecialchars($userPhoneNumber); ?>">
                     </div>
             </div>
             <div class="form-group row">
                     <label for="staticBirth" class="col-sm-2 col-form-label">Birthday</label>
                     <div class="col-sm-10">
-                      <input type="text" readonly class="form-control-plaintext" id="staticBirth" value="01/01/1991">
+                      <input type="text" readonly class="form-control-plaintext" id="staticBirth" value="<?php echo htmlspecialchars($userBirthday); ?>">
                     </div>
                   </div>
           </form>
             <button class="sectionButton" onclick="location.href='profile-edit.html'" type="button">Edit Profile</button><br>
-            <button class="sectionButton" type="button">Sign Out</button>
+            <button class="sectionButton" onclick="location.href='login.php'" type="button">Sign Out</button>
       <!-- InstanceEndEditable --></td>
     </tr>
     <tr>
