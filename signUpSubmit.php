@@ -13,5 +13,5 @@
     $sql = "INSERT INTO User (FirstName, LastName, Address, City, State, DateOfBirth, Gender, PhoneNumber, Email, Password, Position) VALUES ('$firstName', '$lastName', '$address', '$city', '$state', '2000-12-25', 'male', '1234123123', '$email', '$pass', '3')";
 
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
-    header("Location: index.php");
+    header("Location: login.php");
 ?>

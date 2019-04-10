@@ -146,7 +146,7 @@ if ($result)
             <td colspan="2">
                 <div class="alert alert-primary" role="alert" style="display: flex; justify-content: space-between;">
                     Upcoming video call in 5 minutes. 
-                    <button type="button" class="btn btn-primary" style="max-width: 100px">Check in</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='VidyoWebApp.html'" style="max-width: 100px">Check in</button>
                   </div>
               <h3>Appointments</h3>
               

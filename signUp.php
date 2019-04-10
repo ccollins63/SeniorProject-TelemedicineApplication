@@ -139,7 +139,7 @@
                   <input class="form-check-input" type="checkbox" id="termCheck"
                     required>
                     <label class="form-check-label" for="termCheck">
-                    <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions.</a>
+                    <a href="" data-toggle="modal" data-target="#termsModal">I agree to the terms and conditions. *</a>
     
                     </label>
                   <div class="invalid-feedback">
