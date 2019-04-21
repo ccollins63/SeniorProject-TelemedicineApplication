@@ -137,6 +137,7 @@ if($result->num_rows > 0)
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
+                      <form action="appointmentInput.php" method="post">
                     <div class="modal-body">
                        What date works for you? <input type="date" name="bday"><br>
                        What time? 
@@ -145,7 +146,7 @@ if($result->num_rows > 0)
                         (Office hours are 9am to 6pm)<br><br>
                         <div class="form-group">
                             <label for="extraNotes">Extra Notes</label>
-                            <textarea class="form-control" id="extraNotes" rows="3"></textarea>
+                            <textarea class="form-control" id="extraNotes" name="extraNotes" rows="3"></textarea>
                         </div>
                       
                     </div>
@@ -153,6 +154,7 @@ if($result->num_rows > 0)
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-primary">Submit Request</button>
                     </div>
+                      </form>
                   </div>
                 </div>
               </div>

@@ -66,6 +66,7 @@ if ($result)
 <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
 <link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceEndEditable -->
+    
 </head>
 
 <body>
@@ -77,8 +78,6 @@ if ($result)
     <td class="companylogo"><a href="index.php"><img src="images/logo.png" width="150"></a></td>
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
     </tr>
-   
-    
     
     <tr>
       <td align="center">
@@ -183,12 +182,6 @@ if ($result)
           <!--End of Section 3 Messages-->
           </tbody>
       </table>      <p>&nbsp;</p>      </td>
-
-
-
-
-
-
 
 <!-- InstanceEndEditable --></td>
     </tr>
