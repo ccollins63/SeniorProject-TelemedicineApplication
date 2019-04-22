@@ -166,7 +166,7 @@ if($result->num_rows > 0)
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                              <button type="button" id= "save" class="btn btn-primary" onclick="alert('Thank you, your message was sent!')">Confirm</button>
+                              <button type="button" id= "save" class="btn btn-primary" >Confirm</button>
                             </div>
                           </div>
                         </div>
