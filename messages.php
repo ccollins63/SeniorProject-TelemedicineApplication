@@ -166,7 +166,7 @@ if($result->num_rows > 0)
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                              <button type="button" class="btn btn-primary" onclick="alert('Thank you, your message was sent!')">Confirm</button>
+                              <button type="button" id= "save" class="btn btn-primary" onclick="alert('Thank you, your message was sent!')">Confirm</button>
                             </div>
                           </div>
                         </div>
@@ -201,4 +201,36 @@ if($result->num_rows > 0)
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+
+("#save").click(function () {
+  var textReply = $("replyTextArea").val();
+
+  if (replyTextArea == ''){
+
+    swal({
+      title: "No Reply",
+      text: "No reply was written",
+      icon: "warning",
+      button: "Ok",
+
+    });
+  } else {
+    swal({
+      title: "Reply was sent!",
+      icon: "success",
+      button: "Ok",
+
+    });
+
+  }
+
+
+
+
+})
+
+</script>
 <!-- InstanceEnd --></html>
