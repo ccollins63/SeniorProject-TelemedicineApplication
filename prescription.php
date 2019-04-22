@@ -145,7 +145,7 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request is has been submitted!')">Confirm</button>
               </div>
             </div>
           </div>
