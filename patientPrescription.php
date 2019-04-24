@@ -1,4 +1,5 @@
 <?php
+
 require __DIR__ . '/auth.php';
 
 include 'connect-mysql.php';
@@ -19,11 +20,9 @@ if($result->num_rows > 0)
         $userLastName = $row['LastName'];
     }
 }
-$prescriptionName     = "SELECT PrescriptionName FROM Prescription WHERE PatientID = UserID";
-$prescriptionNotes    = "SELECT PrescriptionNotes FROM Prescription WHERE PatientID = UserID";
-$prescriptionQuantity = "SELECT PrescriptionQuantity FROM Prescription WHERE PatientID = UserID";
-$prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE PatientID = UserID";
-$prescriptionDoctorName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";
+
+
+
 ?>
 
 <!doctype html>
@@ -123,19 +122,33 @@ $prescriptionDoctorName       = "SELECT DoctorID FROM Prescription WHERE Patient
         <h4>You are on the following medications:</h4>
       </div>
 
-    <?php 
-    if ($result->num_rows > 0)
-    {
-      while ($row = $result->fetch_array(MYSQLI_ASSOC))
-      { ?>
+      <?php
+      $prescriptionQuery = "SELECT * FROM Prescription WHERE PatientID = '$_SESSION[userID]'";
+
+      console.log($prescriptionQuery);
+      
+      $prescriptionResult = $conn->query($prescriptionQuery);
+      
+      if($prescriptionResult->num_rows > 0)
+      {
+          while($row = $result->fetch_array(MYSQLI_ASSOC))
+          {	
+              $userFirstName = $row['FirstName'];
+              $userLastName = $row['LastName'];
+              $prescriptionName     = $row['PrescriptionName'];
+              $prescriptionNotes    = $row['PrescriptionNotes'];
+              $prescriptionQuantity = $row['PrescriptionQuantity'];
+              $prescriptionDate     = $row['PrescriptionDate'];
+              $prescriptionDoctorName = $row['DoctorID'];
+      ?>
         <div class="prescriptionContainer">
           <div class="spaceBetween">
-            <h5 class="drugName"><?php echo '$prescriptionName'; ?></h5>
-            <p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
+            <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
+            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
           </div>
           <div>
-            <p><?php echo '$prescriptionNotes'; ?></p>
-          <span>Prescribed by: <?php echo '$prescriptionDoctorName'; ?></span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
+            <p><?php echo "$prescriptionNotes"; ?></p>
+          <span>Prescribed by: <?php echo "$prescriptionDoctorName"; ?></span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
           <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
             Request refill
           </button>
@@ -161,8 +174,9 @@ $prescriptionDoctorName       = "SELECT DoctorID FROM Prescription WHERE Patient
             </div>
           </div>
         </div>
-    <?php  }
-    }?>
+        <?php
+          }
+      }?>
 		  
       <!-- InstanceEndEditable --></td>
     </tr>

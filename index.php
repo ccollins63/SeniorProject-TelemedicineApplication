@@ -1,4 +1,5 @@
 <?php
+
 require __DIR__ . '/auth.php';
 
 include 'connect-mysql.php';
