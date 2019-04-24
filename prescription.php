@@ -21,6 +21,7 @@ $prescriptionName     = "SELECT PrescriptionName FROM Prescription WHERE Patient
 $prescriptionNotes    = "SELECT PrescriptionNotes FROM Prescription WHERE PatientID = UserID";
 $prescriptionQuantity = "SELECT PrescriptionQuantity FROM Prescription WHERE PatientID = UserID";
 $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE PatientID = UserID";
+$prescriberName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";
 ?>
 
 <!doctype html>
@@ -119,40 +120,47 @@ $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE Patient
       <div style="padding: 15px">
         <h4>You are on the following medications:</h4>
       </div>
-	  <div class="prescriptionContainer">
-		  <div class="spaceBetween">
-		  	<h5 class="drugName">Ibuprofen</h5>
-		  	<p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
-		  </div>
-		  <div>
-		    <p><?php echo '$prescriptionNotes'; ?></p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
-      <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
-        Request refill
-      </button>
-      <!--Modal-->
-      <div class="modal fade" id="requestRefill" tabindex="-1" role="dialog" aria-labelledby="refillLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="refillLabel">Message</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Request refill for this drug?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request is has been submitted!')">Confirm</button>
+
+    <?php 
+    if ($result->num_rows > 0)
+    {
+      while ($row = $result->fetch_array(MYSQLI_ASSOC))
+      { ?>
+        <div class="prescriptionContainer">
+          <div class="spaceBetween">
+            <h5 class="drugName"><?php echo '$prescriptionName'; ?></h5>
+            <p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
+          </div>
+          <div>
+            <p><?php echo '$prescriptionNotes'; ?></p>
+          <span>Prescribed by: <?php echo '$prescriberName'; ?></span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
+          <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
+            Request refill
+          </button>
+          <!--Modal-->
+          <div class="modal fade" id="requestRefill" tabindex="-1" role="dialog" aria-labelledby="refillLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="refillLabel">Message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Request refill for this drug?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
+                    <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request is has been submitted!')">Confirm</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-		  </div>
-		</div>
-		  
+    <?php  }
+    }?>
 		  <div class="prescriptionContainer">
 		  <div class="spaceBetween">
 		  	<h5 class="drugName">Oxycodone</h5>
