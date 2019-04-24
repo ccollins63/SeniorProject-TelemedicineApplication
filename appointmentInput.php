@@ -11,5 +11,5 @@
     $sql = "INSERT INTO Appointment (DoctorID, PatientID, Date, Time, DoctorNotes, PatientNotes) VALUES ('1', '$_SESSION[userID]', '$date', '$time', '', '$extraNotes')";
 
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
-    header("Location: appointment.php");
+    header("Location: patientAppointment.php");
 ?>

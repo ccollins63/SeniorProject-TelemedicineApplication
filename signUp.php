@@ -1,3 +1,6 @@
+<?php
+require __DIR__ . '/auth.php';
+?>
 <!doctype html>
 <html>
   <head>

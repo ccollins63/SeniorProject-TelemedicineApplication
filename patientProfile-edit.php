@@ -1,4 +1,8 @@
+<?php
+require __DIR__ . '/auth.php';
+?>
 <!doctype html>
+
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta charset="UTF-8">
@@ -40,25 +44,25 @@
               </p>
 
               <p>
-                <a href="appointment.php">
+                <a href="patientAppointment.php">
                   <button>Appointments</button>
                 </a>
               </p>
 
               <p>
-                <a href="prescription.php">
+                <a href="patientPrescription.php">
                   <button>Prescriptions</button>
                 </a>
               </p>
 
               <p>
-                  <a href="messages.php">
+                  <a href="patientMessages.php">
                     <button>Messages</button>
                   </a>
                 </p>
 
               <p>
-                <a href="profile.php">
+                <a href="patientProfile.php">
                   <button>Patient Profile</button>
                 </a>
               </p>

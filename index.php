@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/auth.php';
+
 include 'connect-mysql.php';
 $conn = connectDB();
 
@@ -53,7 +55,7 @@ if ($result)
   {
     $numOfMessages = 0;
   }
-?>
+  ?>
 
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
@@ -95,25 +97,25 @@ if ($result)
                   </p>
     
                   <p>
-                    <a href="appointment.php">
+                    <a href="patientAppointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="prescription.php">
+                    <a href="patientPrescription.php">
                       <button>Prescriptions</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="messages.php">
+                    <a href="patientMessages.php">
                       <button>Messages</button>
                     </a>
                   </p>
     
                   <p>
-                    <a href="profile.php">
+                    <a href="patientProfile.php">
                       <button>Patient Profile</button>
                     </a>
                   </p>
@@ -134,7 +136,7 @@ if ($result)
           <tr class="banner">
             <td width="22%"><img src="images/man.png" alt="man" height="100px" width="100px" ></td>
             <td width="78%" class="signout"><p id="a">Welcome, <?php echo "$userFirstName $userLastName"; ?> </p>
-              <a href="login.php">Sign Out</a></td>
+              <a href="signout.php">Sign Out</a></td>
             </tr>
           </tbody>
       </table>
@@ -154,7 +156,7 @@ if ($result)
           <tr>
             <td><p>You have <?php echo "$numOfAppointments"; ?> upcoming appointments.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='appointment.php'" type="button">View Upcoming</button>
+                <button class="sectionButton" onclick="location.href='patientAppointment.php'" type="button">View Upcoming</button>
             </td>
             </tr>
           <!--End of Section 1 Appointments-->
@@ -165,7 +167,7 @@ if ($result)
           <tr>
             <td><p>You have <?php echo "$numOfPrescriptions"; ?> upcoming prescriptions.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='prescription.php'" type="button">View Prescriptions</button>
+                <button class="sectionButton" onclick="location.href='patientPrescription.php'" type="button">View Prescriptions</button>
             </td>
             </tr>
           <!--End of Section 2 Prescriptions-->
@@ -176,7 +178,7 @@ if ($result)
           <tr>
             <td><p>You have <?php echo "$numOfMessages"; ?> messages pending.</p></td>
             <td>
-                <button class="sectionButton" onclick="location.href='messages.php'" type="button">View Messages</button>
+                <button class="sectionButton" onclick="location.href='patientMessages.php'" type="button">View Messages</button>
             </td>
           </tr>
           <!--End of Section 3 Messages-->
