@@ -16,6 +16,9 @@ if($result->num_rows > 0)
         $userFirstName = $row['FirstName'];
         $userLastName = $row['LastName'];
     }
+    $appointmentTime = "SELECT Time FROM Appointment WHERE PatientID = UserID";
+    $appointmentDate     = "SELECT Date FROM Appointment WHERE PatientID = UserID";
+    $appointmentDoctorName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";    
 }
 ?>
 
@@ -165,12 +168,13 @@ if($result->num_rows > 0)
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->
           <tr class="info">
-            <td>
-             
-             <p>Monday,  March 21, 2019 with John Smith MD</p>
-             
-               <p>Wednesday, April 10, 2019 with Sarah Smith MD</p>
-               
+            <?php if ($result->num_rows > 0)
+            {
+              while ($row = $result->fetch_array(MYSQLI_ASSOC))
+              { ?>
+              <td>
+             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
+
                </td>
                
             <td id="rightInfoCenter">
@@ -179,6 +183,10 @@ if($result->num_rows > 0)
               <p>View</p>
               
               </td>
+              <?php
+             }
+            }
+             ?>
           </tr>
           <!--End of Section 2 Prescriptions-->
           <!--Section 3 Messages-->

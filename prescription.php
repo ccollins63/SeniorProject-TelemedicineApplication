@@ -21,7 +21,7 @@ $prescriptionName     = "SELECT PrescriptionName FROM Prescription WHERE Patient
 $prescriptionNotes    = "SELECT PrescriptionNotes FROM Prescription WHERE PatientID = UserID";
 $prescriptionQuantity = "SELECT PrescriptionQuantity FROM Prescription WHERE PatientID = UserID";
 $prescriptionDate     = "SELECT PrescriptionDate FROM Prescription WHERE PatientID = UserID";
-$prescriberName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";
+$prescriptionDoctorName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";
 ?>
 
 <!doctype html>
@@ -133,7 +133,7 @@ $prescriberName       = "SELECT DoctorID FROM Prescription WHERE PatientID = Use
           </div>
           <div>
             <p><?php echo '$prescriptionNotes'; ?></p>
-          <span>Prescribed by: <?php echo '$prescriberName'; ?></span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
+          <span>Prescribed by: <?php echo '$prescriptionDoctorName'; ?></span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
           <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
             Request refill
           </button>
@@ -161,17 +161,7 @@ $prescriberName       = "SELECT DoctorID FROM Prescription WHERE PatientID = Use
         </div>
     <?php  }
     }?>
-		  <div class="prescriptionContainer">
-		  <div class="spaceBetween">
-		  	<h5 class="drugName">Oxycodone</h5>
-		  	<p>Prescribed on: <?php echo '$prescriptionDate'; ?></p>
-		  </div>
-		  <div>
-		    <p><?php echo '$prescriptionNotes'; ?></p>
-			<span>Prescribed by: John Smith MD</span><span style="margin-left: 20px">Quantity: <?php echo '$prescriptionQuantity'; ?></span>
-			<button class="sectionButton" style="float: right;" data-toggle="modal" data-target="#requestRefill">Request refill</button>
-		  </div>
-		</div>
+		  
       <!-- InstanceEndEditable --></td>
     </tr>
     <tr>
