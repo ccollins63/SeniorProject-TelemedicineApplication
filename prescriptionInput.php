@@ -11,5 +11,5 @@
     $sql = "INSERT INTO Prescription (PrescriptionID, PatientID, DoctorID, PrescriptionName, PrescriptionDate, PrescriptionNotes, PrescriptionQuantity) VALUES ('1', '$_SESSION[userID]', '$date', '$time', '', '$extraNotes')";
 
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
-    header("Location: prescription.php");
+    header("Location: patientPrescription.php");
 ?>
