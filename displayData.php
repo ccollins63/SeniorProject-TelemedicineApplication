@@ -63,6 +63,7 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['PrescriptionID'] . "</td>";
+echo "<td>" . $row['PatientID'] . "</td>";
 echo "<td>" . $row['DoctorID'] . "</td>";
 echo "<td>" . $row['PrescriptionName'] . "</td>";
 echo "<td>" . $row['PrescriptionDate'] . "</td>";
