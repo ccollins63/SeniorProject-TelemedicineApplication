@@ -209,8 +209,16 @@ if($result->num_rows > 0)
           	  </td>
           	  
           	<td id="rightInfoCenter">
-         	  
-             <p>View</p>
+
+            
+             <p>
+             
+             <a href="patientAppointmentPatientView.php">
+
+             View
+             
+             </a>
+             </p>
 
           	  
           	  </td>
