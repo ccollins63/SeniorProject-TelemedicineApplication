@@ -8,15 +8,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-    $doctorid =  10;
-    $patientid = 4;
-    $date = '2019-12-25';
-    $time = '00:00:00';
-    $doctornotes = 'test';
-    $patientnotes = 'test';
+    $PrescriptionRequest =  TRUE;
+    $RequestConfirm = TRUE;
+    
 
 // sql to delete a record
-$sql = "INSERT INTO Appointment (DoctorID, PatientID, Date, Time, DoctorNotes, PatientNotes) VALUES ('$doctorid', '$patientid', '$date', '$time', '$doctornotes', '$patientnotes')";
+$sql = "UPDATE Prescription SET RequestConfirm = '$RequestConfirm' WHERE PrescriptionID ='3'";
 
 
 if (mysqli_query($conn, $sql)) {

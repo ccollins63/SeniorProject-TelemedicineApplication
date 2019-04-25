@@ -57,6 +57,8 @@ echo "<table border='1'>
 <th>PrescriptionDate</th>
 <th>PrescriptionNotes</th>
 <th>PrescriptionQuantity</th>
+<th>PrescriptionRequest</th>
+<th>RequestConfirm</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
@@ -69,6 +71,8 @@ echo "<td>" . $row['PrescriptionName'] . "</td>";
 echo "<td>" . $row['PrescriptionDate'] . "</td>";
 echo "<td>" . $row['PrescriptionNotes'] . "</td>";
 echo "<td>" . $row['PrescriptionQuantity'] . "</td>";
+echo "<td>" . $row['PrescriptionRequest'] . "</td>";
+echo "<td>" . $row['RequestConfirm'] . "</td>";
 echo "</tr>";
 }
 echo "</table>";

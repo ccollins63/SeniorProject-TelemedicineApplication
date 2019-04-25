@@ -1,6 +1,25 @@
 <?php
 
-require __DIR__ . '/auth.php'; ?>
+require __DIR__ . '/auth.php'; 
+include 'connect-mysql.php';
+$conn = connectDB();
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+    }
+}
+?>
 
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
@@ -23,6 +42,11 @@ require __DIR__ . '/auth.php'; ?>
         <tr>
           <td class="companylogo"><img src="images/logo.png" width="150"></td>
           <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
+          <td align="center" class="signOut">
+          <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
+          <span>Dr. <?php echo "$userFirstName $userLastName"; ?></span><br>
+          <a href="signout.php">Sign Out</a></td>
+      </td>
         </tr>
 
 

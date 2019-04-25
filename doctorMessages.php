@@ -95,7 +95,8 @@ if(promptValue != null){
 </script>
 <style>
 div#chatbox{
-    width: 500px;
+    margin: auto;
+    width: 75%;
     height: 400px;
     padding: 20px;
     background: skyblue;
