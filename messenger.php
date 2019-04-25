@@ -7,37 +7,37 @@ $_SESSION['last_line'] = "";
 <head>
 <meta charset="UTF-8">
 <script>
-var source, chattext, last_data, chat_btn, conx_btn, disconx_btn, text;
+var source, chattext, lastData, chatBtn, connectBtn, disconnectBtn, text;
 var hr = new XMLHttpRequest();
 function connect(){
     if(window.EventSource){
         source = new EventSource("messengerServer.php");
         source.addEventListener("message", function(event){
-            if(event.data != last_data && event.data != ""){
+            if(event.data != lastData && event.data != ""){
                 chattext.innerHTML += event.data+"<hr>";
             }
-            last_data = event.data;
+            lastData = event.data;
         });
-        chat_btn.disabled = false;
-        conx_btn.disabled = true;
-        disconx_btn.disabled = false;
+        chatBtn.disabled = false;
+        connectBtn.disabled = true;
+        disconnectBtn.disabled = false;
     } else {
-        alert("event source does not work in this browser, author a fallback technology");
+        alert("event source does not work in this browser");
     }
 }
 function disconnect(){
     source.close();
-    disconx_btn.disabled = true;
-    conx_btn.disabled = false;
-    chat_btn.disabled = true;
+    disconnectBtn.disabled = true;
+    connectBtn.disabled = false;
+    chatBtn.disabled = true;
 }
 function chatPost(){
-    chat_btn.disabled = true;
+    chatBtn.disabled = true;
     hr.open("POST", "messengerIntake.php", true);
     hr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     hr.onreadystatechange = function() {
         if(hr.readyState == 4 && hr.status == 200) {
-            chat_btn.disabled = false;
+            chatBtn.disabled = false;
             text.value = "";
         }
     }
@@ -51,11 +51,11 @@ if(promptValue != null){
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    if(hr.responseText == "success"){
 				chattext = document.getElementById("chattext");
-				chat_btn = document.getElementById("chat_btn");
-				conx_btn = document.getElementById("conx_btn");
-				disconx_btn = document.getElementById("disconx_btn");
+				chatBtn = document.getElementById("chat_btn");
+				connectBtn = document.getElementById("conx_btn");
+				disconnectBtn = document.getElementById("disconx_btn");
 				text = document.getElementById("text");
-				conx_btn.disabled = false;
+				connectBtn.disabled = false;
 				alert("Welcome to the chat "+promptValue+", press connect when ready.");
 			}
 	    }
@@ -68,7 +68,7 @@ div#chatbox{
     width: 300px;
     height: 330px;
     padding: 20px;
-    background:#FFE1A4;
+    background: #000000;
     border-radius: 5px;
 }
 div#chatbox > #chattext{
@@ -85,7 +85,7 @@ div#chatbox > #text{
 </head>
 <body>
 <div id="chatbox">
-  <b>SSE Chatbox <small>shared hosting test</small></b>
+  <b>Chat Window</b>
   <div id="chattext"></div>
   <textarea id="text"></textarea>
   <input type="button" id="chat_btn" onclick="chatPost()" value="Submit Text" disabled> &nbsp; &nbsp;
