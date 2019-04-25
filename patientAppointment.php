@@ -194,7 +194,7 @@ if($result->num_rows > 0)
                     $appointmentTime    = $row['Time'];
                     $appointmentDoctorID = $row['DoctorID'];
                     $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
-                    while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
+                    while($appointmentDoctorNameRow = mysqli_fetch_array($appointmentDoctorNameResult))
                     {
                       $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
                     }
