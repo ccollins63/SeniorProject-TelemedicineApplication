@@ -167,7 +167,7 @@ div#chatbox > #text{
                 
 
                   <p>
-                    <a href="video.php">
+                  <a href="VidyoWebApp.html">
                       <button>Video Call</button>
                     </a>
                   </p>
