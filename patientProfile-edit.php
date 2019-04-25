@@ -116,6 +116,7 @@ if($result->num_rows > 0)
         <span class="glyphicon glyphicon-camera" aria-hidden="true"></span><a href="#" style="padding: 10px 5px 10px 5px;">Change Picture</a>
       </div>
       <form style="margin: 0 auto; width: 50%; text-align: center;">
+      <form action="profileInput.php" method="post">
             <div class="form-group row">
               <label for="staticFirstName" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">

@@ -1,16 +1,20 @@
 <?php
     include 'connect-mysql.php';
-    $staticFirstName = $_POST['firstName'];
-    $staticLastName = $_POST['lastName'];
-    $staticEmail = $_POST['email'];
-    $staticBirth = $_POST['dateOfBirth'];
+    $staticFirstName = $_POST['staticFirstName'];
+    $staticLastName = $_POST['staticLastName'];
+    $staticEmail = $_POST['staticEmail'];
+    $staticBirth = $_POST['staticDateOfBirth'];
 
     $_SESSION['accountExists'];
 
     $connection = connectDB();
 
-    $sql = "INSERT INTO Prescription (FirstName, LastName, Email, DateOfBirth) VALUES ('$staticFirstName', '$staticLastName', '$staticEmail', '$staticBirth')";
+    $sql = "UPDATE User Set FirstName='$staticFirstName' WHERE PatientID = '$_SESSION[userID];
+            UPDATE User Set LastName='$staticLastName' WHERE PatientID = '$_SESSION[userID];
+            UPDATE User Set Email='$staticEmail' WHERE PatientID = '$_SESSION[userID];
+            UPDATE User Set DateOfBirth='$staticBirth' WHERE PatientID = '$_SESSION[userID]";
 
-    $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
-    header("Location: patientPrescription.php");
+
+    mysqli_close($connection);
+    header("Location: patientProfile-edit.php");
 ?>
