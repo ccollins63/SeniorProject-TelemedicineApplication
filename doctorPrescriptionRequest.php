@@ -1,6 +1,6 @@
 <?php
+require __DIR__ . '/auth.php';
 
-require __DIR__ . '/auth.php'; 
 include 'connect-mysql.php';
 $conn = connectDB();
 
@@ -17,7 +17,7 @@ if($result->num_rows > 0)
     {	
         $userFirstName = $row['FirstName'];
         $userLastName = $row['LastName'];
-    }
+    }    
 }
 ?>
 
@@ -36,20 +36,18 @@ if($result->num_rows > 0)
 
   <body>
 
-    <table width="90%" border="0" cellpadding="5">
-
-      <tbody>
-        <tr>
-          <td class="companylogo"><img src="images/logo.png" width="150"></td>
-          <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
-          <td align="center" class="signOut">
-          <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-          <span>Dr. <?php echo "$userFirstName $userLastName"; ?></span><br>
-          <a href="signout.php">Sign Out</a></td>
-      </td>
-        </tr>
-
-
+  <table width="90%" border="0" cellpadding="5">
+ 
+ <tbody>
+   <tr>
+     <td class="companylogo"><a href="doctorIndex.php"><img src="images/logo.png" width="150"></a></td>
+     <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
+     <td align="center" class="signOut">
+         <img src="images/man.png" alt="man" height="90px" width="90px" >
+         <p> Dr. <span><?php echo "$userFirstName $userLastName"; ?></span></p>
+         <a href="login.php">Sign Out</a>
+     </td>
+   </tr>
 
         <tr>
           <td align="center">
@@ -59,9 +57,9 @@ if($result->num_rows > 0)
 
                 <tr class="navcenter">
                   <td>
-                    
-                   <!--Doctor Navigation-->
-                  <p>
+
+                     <!--Doctor Navigation-->
+               <p>
                     <a href="doctorIndex.php">
                       <button>Home</button>
                     </a>
@@ -83,11 +81,6 @@ if($result->num_rows > 0)
                       <button>Refill Requests</button>
                     </a>
                   </p>
-                  <p>
-                    <a href="doctorCreateUser.php">
-                      <button>New Patient</button>
-                    </a>
-                  </p>
 
                   <p>
                     <a href="video.php">
@@ -104,13 +97,6 @@ if($result->num_rows > 0)
           </td>
 
           <!--Body-->
-          
-
-
-
-
-
-
           <td>
             <table class="patientbody" width="90%" border="2" cellpadding="0">
               <tbody>
@@ -123,51 +109,6 @@ if($result->num_rows > 0)
                       </div>
                     </div>
                     <!--Notification-->
-                    <?php
-      $prescriptionQuery = "SELECT * FROM Prescription WHERE PrescriptionRequest = 'TRUE'";
-
-      console.log($prescriptionQuery);
-      
-      $prescriptionResult = $conn->query($prescriptionQuery);
-      
-      if($prescriptionResult->num_rows > 0)
-      {
-        while($row = mysqli_fetch_array($prescriptionResult))
-        {	
-              $userFirstName = $row['FirstName'];
-              $userLastName = $row['LastName'];
-              $prescriptionName     = $row['PrescriptionName'];
-              $prescriptionNotes    = $row['PrescriptionNotes'];
-              $prescriptionQuantity = $row['PrescriptionQuantity'];
-              $prescriptionDate     = $row['PrescriptionDate'];
-              $prescriptionDoctorID = $row['DoctorID'];
-              $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$prescriptionDoctorID'");
-              while($prescriptionDoctorNameRow = mysqli_fetch_array($prescriptionDoctorNameResult))
-              {
-                $prescriptionDoctorLastName = $prescriptionDoctorNameRow['LastName'];
-              }
-      ?>
-        <div class="prescriptionContainer">
-          <div class="spaceBetween">
-            <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
-          </div>
-          <div>
-            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
-          <span><?php echo "$prescriptionDoctorLastName"; ?> requests a refill.</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
-          <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
-            Request refill
-          </button>
-          <button type="button" class="btn btn-primary" style="max-width: 100px; float:right;" id="accept">Accept</button>
-            <button type="button" class="btn btn-danger" style="max-width: 100px; float:right;" id="reject">Reject</button>
-          
-        <?php
-          }
-      }?>
-
-
-
-
-
                     <div class="alert alert-light" role="alert" style="display: flex; justify-content: space-between;" id="request">
                       <p><span>John Doe</span> requests for <span>Ibuprofen</span> refill. Quantity:<span>800mg</span></p>
                       <button type="button" class="btn btn-primary" style="max-width: 100px" id="accept">Accept</button>
