@@ -83,7 +83,7 @@ if($result->num_rows > 0)
                   </p>
 
                   <p>
-                  <a href="VidyoWebApp.html">
+                  <a href="VidyoWebApp.php">
                       <button>Video Call</button>
                     </a>
                   </p>

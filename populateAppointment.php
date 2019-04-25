@@ -13,7 +13,7 @@ if (!$conn) {
     
 
 // sql to delete a record
-$sql = "UPDATE Prescription SET RequestConfirm = '$RequestConfirm' WHERE PrescriptionID ='3'";
+$sql = "INSERT INTO Appointment (DoctorID, PatientID, Date, Time, DoctorNotes, PatientNotes) VALUES ('11', '9', '2019-06-03', '12:30:00', '', '')";
 
 
 if (mysqli_query($conn, $sql)) {

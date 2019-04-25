@@ -1,4 +1,25 @@
+<?php
+require __DIR__ . '/auth.php';
 
+include 'connect-mysql.php';
+$conn = connectDB();
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+    }    
+}
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -49,8 +70,8 @@
             
                   vidyoConnector.Connect({
                     host:"prod.vidyo.io",
-                    token:"cHJvdmlzaW9uAHVzZXIxQDFjMWU5Yi52aWR5by5pbwA2MzcyMTk2OTg1MQAANGE2MWQxMWJkMmQwNDBhNTg1MmU3NThhZmVlZDhiYmJlZGVlN2YyZWRjYmUzZWY2MDRjY2Y2MTVmMmNjMTE2MWMyYmNhMDk5NTIzZGZhMmEyZTdjMjVlMDU0OTdkMDQ0",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
-                    displayName: "Jibin",
+                    token:"cHJvdmlzaW9uAENhbUA4NzgwYTQudmlkeW8uaW8ANjM3MjM0Mzk4OTAAADgwODI5ZDcwNDAwNDlmMGJmZmRmZjZkNjcwMDg1YzQ0ZGNhOTQwNWRhMmEzYzZkYzRmMDAwZGVmMGVjMWQ3NmQyZTgwN2ExMWY4NGU4OTNlODcwMjg3MGNkZTVjZGJjYw==",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
+                    displayName: "<?php echo "$userFirstName $userLastName";?>",
                     resourceId:"room2",
                     onSuccess: function(){
                       console.log("Connected!! YAY!");

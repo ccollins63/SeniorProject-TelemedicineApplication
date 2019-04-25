@@ -104,7 +104,7 @@ if ($result)
                   </p>
 
                   <p>
-                    <a href="VidyoWebApp.html">
+                  <a href="VidyoWebApp.php">
                       <button>Video Call</button>
                     </a>
                   </p>

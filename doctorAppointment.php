@@ -102,7 +102,7 @@ if($result->num_rows > 0)
                   </p>
 
                   <p>
-                  <a href="VidyoWebApp.html">
+                  <a href="VidyoWebApp.php">
                       <button>Video Call</button>
                     </a>
                   </p>
@@ -137,7 +137,7 @@ if($result->num_rows > 0)
 
 
                 <?php
-            $appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+            $appointmentQuery = "SELECT * FROM Appointment WHERE DoctorID = '$_SESSION[userID]'";
 
             console.log($appointmentQuery);
             
