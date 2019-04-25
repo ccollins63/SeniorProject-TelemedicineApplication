@@ -286,7 +286,7 @@ if($result->num_rows > 0)
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                                    <button type="button" class="btn btn-danger">Yes, Cancel</button>
+                                    <button type="button" class="btn btn-danger" onclick="window.location.href='appointmentCancellation.php'">Yes, Cancel</button>
                                     </div>
                                 </div>
                                 </div>
