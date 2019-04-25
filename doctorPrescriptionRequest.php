@@ -104,6 +104,13 @@ if($result->num_rows > 0)
           </td>
 
           <!--Body-->
+          
+
+
+
+
+
+
           <td>
             <table class="patientbody" width="90%" border="2" cellpadding="0">
               <tbody>
@@ -116,6 +123,52 @@ if($result->num_rows > 0)
                       </div>
                     </div>
                     <!--Notification-->
+                    <?php
+      $prescriptionQuery = "SELECT * FROM Prescription WHERE PrescriptionRequest = 'TRUE'";
+
+      console.log($prescriptionQuery);
+      
+      $prescriptionResult = $conn->query($prescriptionQuery);
+      
+      if($prescriptionResult->num_rows > 0)
+      {
+        while($row = mysqli_fetch_array($prescriptionResult))
+        {	
+              $userFirstName = $row['FirstName'];
+              $userLastName = $row['LastName'];
+              $prescriptionName     = $row['PrescriptionName'];
+              $prescriptionNotes    = $row['PrescriptionNotes'];
+              $prescriptionQuantity = $row['PrescriptionQuantity'];
+              $prescriptionDate     = $row['PrescriptionDate'];
+              $prescriptionDoctorID = $row['DoctorID'];
+              $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$prescriptionDoctorID'");
+              while($prescriptionDoctorNameRow = mysqli_fetch_array($prescriptionDoctorNameResult))
+              {
+                $prescriptionDoctorLastName = $prescriptionDoctorNameRow['LastName'];
+              }
+      ?>
+        <div class="prescriptionContainer">
+          <div class="spaceBetween">
+            <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
+            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
+          </div>
+          <div>
+            <p><?php echo "$prescriptionNotes"; ?></p>
+          <span>Prescribed by: <?php echo "Dr. $prescriptionDoctorLastName"; ?></span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+          <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
+            Request refill
+          </button>
+          <button type="button" class="btn btn-primary" style="max-width: 100px" id="accept">Accept</button>
+            <button type="button" class="btn btn-danger" style="max-width: 100px" id="reject">Reject</button>
+          
+        <?php
+          }
+      }?>
+
+
+
+
+
                     <div class="alert alert-light" role="alert" style="display: flex; justify-content: space-between;" id="request">
                       <p><span>John Doe</span> requests for <span>Ibuprofen</span> refill. Quantity:<span>800mg</span></p>
                       <button type="button" class="btn btn-primary" style="max-width: 100px" id="accept">Accept</button>
