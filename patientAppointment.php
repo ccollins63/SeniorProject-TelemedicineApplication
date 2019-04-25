@@ -190,10 +190,10 @@ if($result->num_rows > 0)
               {	
                     $userFirstName = $row['FirstName'];
                     $userLastName = $row['LastName'];
-                    $prescriptionName     = $row['appointmentDate'];
-                    $prescriptionNotes    = $row['appointmentTime'];
+                    $appointmentDate     = $row['Date'];
+                    $appointmentTime    = $row['Time'];
                     $appointmentDoctorID = $row['DoctorID'];
-                    $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+                    $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
                     while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
                     {
                       $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
