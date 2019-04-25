@@ -23,9 +23,16 @@ if($result->num_rows > 0)
         $_SESSION['userID'] = $row['PatientID'];
         $userFirstName = $row['FirstName'];
         $userLastName = $row['LastName'];
+        $userPosition = $row['Position'];
     }
+    
+    if($userPosition == 3)
+        header("Location: index.php");
+    else if ($userPosition == 2)
+        header("Location: doctorIndex.php");
+    else
+        header("Location: index.php");
     //document.getElementById("failedLoginMessage").style.visibility = "hidden";
-    header("Location: index.php");
 }
 else
 {
