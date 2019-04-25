@@ -141,8 +141,8 @@ if($result->num_rows > 0)
                       <input type="text" class="form-control" id="staticBirth" value=<?php echo "$userBirthday"?>>
                     </div>
                   </div>
+                  <button type="submit" class="btn btn-primary">Submit Edits</button><br><br>
           </form>
-          <button type="submit" class="btn btn-primary">Submit Edits</button><br><br>
       <!-- InstanceEndEditable --></td>
       <td> &nbsp;</td>
     </tr>
