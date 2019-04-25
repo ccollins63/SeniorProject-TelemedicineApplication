@@ -9,7 +9,7 @@
 
     $connection = connectDB();
 
-    $sql = "INSERT INTO Prescription (PrescriptionID, PatientID, DoctorID, PrescriptionName, PrescriptionDate, PrescriptionNotes, PrescriptionQuantity) VALUES ('1', '$_SESSION[userID]', '', '$prescriptionName', '$prescriptionDate', '$prescriptionNotes', '$prescriptionQuantity')";
+    $sql = "INSERT INTO Prescription (PatientID, DoctorID, PrescriptionName, PrescriptionDate, PrescriptionNotes, PrescriptionQuantity) VALUES ('$_SESSION[userID]', '', '$prescriptionName', '$prescriptionDate', '$prescriptionNotes', '$prescriptionQuantity')";
 
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
     header("Location: patientPrescription.php");
