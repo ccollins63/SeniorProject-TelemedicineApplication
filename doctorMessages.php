@@ -164,11 +164,7 @@ div#chatbox > #text{
                       <button>Refill Requests</button>
                     </a>
                   </p>
-                  <p>
-                    <a href="doctorCreateUser.php">
-                      <button>New Patient</button>
-                    </a>
-                  </p>
+                
 
                   <p>
                     <a href="video.php">
