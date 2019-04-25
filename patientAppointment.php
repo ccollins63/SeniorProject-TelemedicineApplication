@@ -17,10 +17,7 @@ if($result->num_rows > 0)
     {	
         $userFirstName = $row['FirstName'];
         $userLastName = $row['LastName'];
-    }
-    $appointmentTime = "SELECT Time FROM Appointment WHERE PatientID = UserID";
-    $appointmentDate     = "SELECT Date FROM Appointment WHERE PatientID = UserID";
-    $appointmentDoctorName       = "SELECT DoctorID FROM Prescription WHERE PatientID = UserID";    
+    }    
 }
 ?>
 

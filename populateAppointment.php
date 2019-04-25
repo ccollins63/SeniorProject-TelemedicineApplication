@@ -8,7 +8,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-    $doctorid =  6;
+    $doctorid =  10;
     $patientid = 4;
     $date = '2019-12-25';
     $time = '00:00:00';
