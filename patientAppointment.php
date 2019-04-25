@@ -212,14 +212,12 @@ if($result->num_rows > 0)
           
           	<td> 
          
-             <p>Monday, March 21, 2019 with John Smith MD</p>
              <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorName"?> </p>
              
           	  </td>
           	  
           	<td id="rightInfoCenter">
          	  
-             <p>View</p>
              <p>View</p>
 
           	  
