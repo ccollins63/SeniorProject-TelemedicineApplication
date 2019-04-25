@@ -188,6 +188,7 @@ if($result->num_rows > 0)
               </td>
           
           </tr>
+
           <?php
             $appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
 
@@ -215,7 +216,7 @@ if($result->num_rows > 0)
           	<td> 
          
              <p>Monday, March 21, 2019 with John Smith MD</p>
-             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
+             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorName"?> </p>
              
           	  </td>
           	  
