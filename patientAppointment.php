@@ -33,6 +33,23 @@ if($result->num_rows > 0)
 <link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
+
+<style type="text/css">
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+          width: 700px; /* New width for default modal */
+        }
+        .modal-sm {
+          width: 350px; /* New width for small modal */
+        }
+    }
+    @media screen and (min-width: 992px) {
+        .modal-lg {
+          width: 1020px; /* New width for large modal */
+        }
+    }
+</style>
+
 </head>
 
 <body>
@@ -107,7 +124,8 @@ if($result->num_rows > 0)
            <td class="appTitle">Appointments</td>
 
             <!-- Button trigger modal -->
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Schedule Appointment
               </button>
               
@@ -213,11 +231,108 @@ if($result->num_rows > 0)
             
              <p>
 
-             <a href="patientAppointmentPatientView.php?id=<?php echo $appointmentID; ?>">
+            
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewApp">
+               view
+              </button>
 
-             View
-             
-             </a>
+              
+
+
+             <!-- Modal -->
+             <div class="modal fade" id="viewApp" tabindex="-1" role="dialog" aria-labelledby="viewAppLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    
+                      <h4 class="modal-title" id="viewAppLabel"> Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                      <form action="patientAppointmentPatientView.php" method="post">
+                    <div class="modal-body">
+                    <div class="row justify-content-center">
+                <div class="col-5">
+                    <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+                    <h4>Patient Notes:</h4> <span><?php echo "$appointmentPatientNotes";?></span>
+                </div>
+                <div class="col-5">
+                        <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
+                </div>
+                        <br>
+                        
+                      
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNotesModal">Edit Notes</button>
+                    <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#cancelConfirmModal">Cancel Appointment</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+                      
+                    </div>
+<!--Modal-->
+<div class="modal fade" id="cancelConfirmModal" tabindex="-1" role="dialog" aria-labelledby="cancelConfirmModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="refillLabel">Confirm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Are you sure you want to cancel this appointment?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
+                                    <button type="button" class="btn btn-danger">Yes, Cancel</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!--End Modal-->
+
+ <!-- Edit Notes Modal -->
+ <div class="modal fade" id="editNotesModal" tabindex="-1" role="dialog" aria-labelledby="editNotesModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editNotesModal">Edit Notes</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                        <form action=".php" method="post">
+                            <div class="form-group">
+                                <label for="extraNotes">Extra Notes</label>
+                                <textarea class="form-control" id="extraNotes" rows="3"></textarea>
+                            </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Submit Edits</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End Edit Notes Modal-->
+
+
+
+                      </form>
+                  </div>
+                </div>
+              </div>
+          
+            </td>
+            
+          </tr>
+          <!--End of Section 1 Appointments-->
              </p>
 
           	  
