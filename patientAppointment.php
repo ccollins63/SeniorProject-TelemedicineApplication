@@ -188,6 +188,7 @@ if($result->num_rows > 0)
             {
               while($row = mysqli_fetch_array($appointmentResult))
               {	
+                    $appointmentID = $row['AppointmentID'];
                     $userFirstName = $row['FirstName'];
                     $userLastName = $row['LastName'];
                     $appointmentDate     = $row['Date'];
