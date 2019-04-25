@@ -154,9 +154,7 @@ if($result->num_rows > 0)
           <div>
             <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
           <span><?php echo "$prescriptionDoctorLastName"; ?> requests a refill.</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
-          <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
-            Request refill
-          </button>
+          
           <button type="button" class="btn btn-primary" style="max-width: 100px; float:right;" id="accept">Accept</button>
             <button type="button" class="btn btn-danger" style="max-width: 100px; float:right;" id="reject">Reject</button>
           
