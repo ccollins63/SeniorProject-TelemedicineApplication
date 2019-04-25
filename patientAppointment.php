@@ -313,7 +313,7 @@ if($result->num_rows > 0)
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Submit Edits</button>
+                          <button type="button" class="btn btn-primary" onclick="window.location.href='appointmentNotesInput.php'">Submit Edits</button>
                         </div>
                       </div>
                     </div>
