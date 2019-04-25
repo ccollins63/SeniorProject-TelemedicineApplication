@@ -1,6 +1,6 @@
 <?php
+require __DIR__ . '/auth.php';
 
-require __DIR__ . '/auth.php'; 
 include 'connect-mysql.php';
 $conn = connectDB();
 
@@ -17,7 +17,7 @@ if($result->num_rows > 0)
     {	
         $userFirstName = $row['FirstName'];
         $userLastName = $row['LastName'];
-    }
+    }    
 }
 ?>
 
@@ -36,20 +36,18 @@ if($result->num_rows > 0)
 
   <body>
 
-    <table width="90%" border="0" cellpadding="5">
-
-      <tbody>
-        <tr>
-          <td class="companylogo"><img src="images/logo.png" width="150"></td>
-          <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
-          <td align="center" class="signOut">
-          <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-          <span>Dr. <?php echo "$userFirstName $userLastName"; ?></span><br>
-          <a href="signout.php">Sign Out</a></td>
-      </td>
-        </tr>
-
-
+  <table width="90%" border="0" cellpadding="5">
+ 
+ <tbody>
+   <tr>
+     <td class="companylogo"><a href="doctorIndex.php"><img src="images/logo.png" width="150"></a></td>
+     <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
+     <td align="center" class="signOut">
+         <img src="images/man.png" alt="man" height="90px" width="90px" >
+         <p> Dr. <span><?php echo "$userFirstName $userLastName"; ?></span></p>
+         <a href="login.php">Sign Out</a>
+     </td>
+   </tr>
 
         <tr>
           <td align="center">
@@ -59,9 +57,9 @@ if($result->num_rows > 0)
 
                 <tr class="navcenter">
                   <td>
-                    
-                   <!--Doctor Navigation-->
-                  <p>
+
+                     <!--Doctor Navigation-->
+               <p>
                     <a href="doctorIndex.php">
                       <button>Home</button>
                     </a>
@@ -83,11 +81,6 @@ if($result->num_rows > 0)
                       <button>Refill Requests</button>
                     </a>
                   </p>
-                  <p>
-                    <a href="doctorCreateUser.php">
-                      <button>New Patient</button>
-                    </a>
-                  </p>
 
                   <p>
                     <a href="video.php">
@@ -104,13 +97,6 @@ if($result->num_rows > 0)
           </td>
 
           <!--Body-->
-          
-
-
-
-
-
-
           <td>
             <table class="patientbody" width="90%" border="2" cellpadding="0">
               <tbody>

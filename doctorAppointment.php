@@ -1,15 +1,55 @@
 <?php
+require __DIR__ . '/auth.php';
 
-require __DIR__ . '/auth.php'; ?>
+include 'connect-mysql.php';
+$conn = connectDB();
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+    }    
+}
+?>
 
 <!doctype html>
-<html>
+<html><!-- InstanceBegin template="/Templates/Tem2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta charset="UTF-8">
-<title>PatientAppointmentView</title>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>DoctorAppointmentView</title>
+<!-- InstanceEndEditable -->
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
 <link href="patientCSS.css" rel="stylesheet" type="text/css">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+
+<style type="text/css">
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+          width: 700px; /* New width for default modal */
+        }
+        .modal-sm {
+          width: 350px; /* New width for small modal */
+        }
+    }
+    @media screen and (min-width: 992px) {
+        .modal-lg {
+          width: 1020px; /* New width for large modal */
+        }
+    }
+</style>
+
 </head>
 
 <body>
@@ -18,15 +58,14 @@ require __DIR__ . '/auth.php'; ?>
  
   <tbody>
     <tr>
-      <td class="companylogo"><img src="images/logo.png" width="150"></td>
+      <td class="companylogo"><a href="doctorIndex.php"><img src="images/logo.png" width="150"></a></td>
       <td class="EqunioxTitle">Equinox Medicine Health Portal</td>
       <td align="center" class="signOut">
-          <img src="images/man.png" alt="man" height="90px" width="90px" ><br>
-          <span>John Doe</span><br>
-          <a href="#">Sign Out</a>
+          <img src="images/man.png" alt="man" height="90px" width="90px" >
+          <p> Dr. <span><?php echo "$userFirstName $userLastName"; ?></span></p>
+          <a href="login.php">Sign Out</a>
       </td>
     </tr>
-   
     
     
     <tr>
@@ -61,11 +100,6 @@ require __DIR__ . '/auth.php'; ?>
                       <button>Refill Requests</button>
                     </a>
                   </p>
-                  <p>
-                    <a href="doctorCreateUser.php">
-                      <button>New Patient</button>
-                    </a>
-                  </p>
 
                   <p>
                     <a href="video.php">
@@ -96,42 +130,157 @@ require __DIR__ . '/auth.php'; ?>
           <tr>
              <div id="textContainer">
                 <td class="mainBodyTitle">
-                    <p>Today (April 8, 2019) </p>
+                   
                 </td>
-            </div>        
-          </tr>
 
-          <tr class="info">
-            <td>
-              <b><p>4:30PM with Jane Doe</p></b>
-              <p>5:30PM with Jake Doe</p>  
-            </td>
-            <td id="rightInfoCenter">
-             <p><a href="appointmentView.html">View</a></p>
-             <p>View</p>
-            </td>
-          </tr>
 
-          <tr>
-                <td class="mainBodyTitle">
-                    <p>Tomorrow (April 9, 2019) </p>
-                
-                </td>
-          </tr>
+
+
+                <?php
+            $appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+
+            console.log($appointmentQuery);
+            
+            $appointmentResult = $conn->query($appointmentQuery);
+            
+            if($appointmentResult->num_rows > 0)
+            {
+              while($row = mysqli_fetch_array($appointmentResult))
+              {	
+                    $appointmentID = $row['AppointmentID'];
+                    $userFirstName = $row['FirstName'];
+                    $userLastName = $row['LastName'];
+                    $appointmentDate     = $row['Date'];
+                    $appointmentTime    = $row['Time'];
+                    $appointmentDoctorID = $row['DoctorID'];
+                    $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+                    while($appointmentDoctorNameRow = mysqli_fetch_array($appointmentDoctorNameResult))
+                    {
+                      $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
+                    }
+      ?>
           <tr class="info">
+          
           	<td> 
-         	    <p>9am with John Smith</p>
-          	  <p>10:30am with Jane Smith</p>
-          	  <p>11am with Taylor Rowe</p>
-          	  <p>1pm with Madison Smith</p>
-          	</td>
+         
+             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorLastName"?> </p>
+             
+          	  </td>
+          	  
           	<td id="rightInfoCenter">
-         	  <p>View</p>
-          	  <p>View</p>
-          	  <p>View</p>
-          	  <p>View</p>
-          	</td>
+
+            
+             <p>
+
+            
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewApp">
+               view
+              </button>
+
+              
+
+
+             <!-- Modal -->
+             <div class="modal fade" id="viewApp" tabindex="-1" role="dialog" aria-labelledby="viewAppLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    
+                      <h4 class="modal-title" id="viewAppLabel"> Doctors Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+
+                      
+                    </div>
+                      <form action="patientAppointmentPatientView.php" method="post">
+                    <div class="modal-body">
+                    <div class="row justify-content-center">
+                <div class="col-5">
+                    <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+                    <h4>Patient Notes:</h4> <span><?php echo "$appointmentPatientNotes";?></span>
+                </div>
+                <div class="col-5">
+                        <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
+                </div>
+                        <br>
+                        
+                      
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNotesModal">Edit Notes</button>
+                    <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#cancelConfirmModal">Cancel Appointment</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+                      
+                    </div>
+<!--Modal-->
+<div class="modal fade" id="cancelConfirmModal" tabindex="-1" role="dialog" aria-labelledby="cancelConfirmModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="refillLabel">Confirm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Are you sure you want to cancel this appointment?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
+                                    <button type="button" class="btn btn-danger">Yes, Cancel</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!--End Modal-->
+
+ <!-- Edit Notes Modal -->
+ <div class="modal fade" id="editNotesModal" tabindex="-1" role="dialog" aria-labelledby="editNotesModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editNotesModal">Edit Notes</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                        <form action=".php" method="post">
+                            <div class="form-group">
+                                <label for="extraNotes">Extra Notes</label>
+                                <textarea class="form-control" id="extraNotes" rows="3"></textarea>
+                            </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Submit Edits</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End Edit Notes Modal-->
+
+
+
+                      </form>
+                  </div>
+                </div>
+              </div>
+          
+            </td>
+            
           </tr>
+          <!--End of Section 1 Appointments-->
+             </p>
+
+          	  
+          	  </td>
+          </tr>
+          <?php
+          }
+      }?>
+          <!--End of Section 3 Messages-->
         </tbody>
       </table>
       <!--End appointment content-->
