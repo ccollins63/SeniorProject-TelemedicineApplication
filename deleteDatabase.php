@@ -9,7 +9,7 @@ if (!$conn) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM Prescription WHERE DoctorID = 6";
+$sql = "DELETE FROM Appointment WHERE PatientID = 4";
 
 if (mysqli_query($conn, $sql)) {
     echo "Record deleted successfully";
