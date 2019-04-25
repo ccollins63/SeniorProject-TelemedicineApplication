@@ -140,7 +140,7 @@ if($result->num_rows > 0)
               $prescriptionQuantity = $row['PrescriptionQuantity'];
               $prescriptionDate     = $row['PrescriptionDate'];
               $prescriptionDoctorID = $row['DoctorID'];
-              $prescriptionDoctorNameResult = mysqli_query($con,"SELECT * FROM User WHERE PatientID = '$prescriptionDoctorID'");
+              $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$prescriptionDoctorID'");
               while($prescriptionDoctorNameRow = mysqli_fetch_array($prescriptionDoctorNameResult))
               {
                 $prescriptionDoctorLastName = $prescriptionDoctorNameRow['LastName'];
