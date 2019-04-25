@@ -9,7 +9,7 @@
 
     $connection = connectDB();
 
-    $sql = "UPDATE User Set (FirstName, LastName, Email, DateOfBirth) VALUES ('$staticFirstName', '$staticLastName', '$staticEmail', '$staticBirth') WHERE PatientID = '$_SESSION[userID]";
+    $sql = "UPDATE User Set FirstName='$staticFirstName' WHERE PatientID = '$_SESSION[userID]";
     
     header("Location: patientProfile-edit.php");
 ?>
