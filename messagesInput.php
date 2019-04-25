@@ -2,7 +2,7 @@
     include 'connect-mysql.php';
     $messageSubject = $_POST['bday'];
     $recipientID = $_POST['date'];
-    $messageBody = $_POST['notes'];
+    $messageBody = $_POST['replyTextArea'];
     $dateCreated = $_POST['dateCreated'];
     $_SESSION['accountExists'];
 
