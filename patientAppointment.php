@@ -118,32 +118,12 @@ if($result->num_rows > 0)
           <!--Section 1 Appointments-->
          
             <tr>
-            <?php
-            $prescriptionQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
-
-            console.log($appointmentQuery);
+            <div id="textContainer">
+            	 <td class="mainBodyTitle">
             
-            $appointmentResult = $conn->query($appointmentQuery);
-            
-            if($appointmentResult->num_rows > 0)
-            {
-              while($row = mysqli_fetch_array($appointmentResult))
-              {	
-                    $userFirstName = $row['FirstName'];
-                    $userLastName = $row['LastName'];
-                    $prescriptionName     = $row['appointmentDate'];
-                    $prescriptionNotes    = $row['appointmentTime'];
-                    $appointmentDoctorID = $row['DoctorID'];
-                    $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
-                    while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
-                    {
-                      $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
-                    }
-      ?>
-              <td>
-             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
-
-               </td>
+            <p>Upcoming </p>
+            	
+            </div>
            
             <td>
              
@@ -190,7 +170,32 @@ if($result->num_rows > 0)
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->
           <tr class="info">
-        
+          <?php
+            $prescriptionQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+
+            console.log($appointmentQuery);
+            
+            $appointmentResult = $conn->query($appointmentQuery);
+            
+            if($appointmentResult->num_rows > 0)
+            {
+              while($row = mysqli_fetch_array($appointmentResult))
+              {	
+                    $userFirstName = $row['FirstName'];
+                    $userLastName = $row['LastName'];
+                    $prescriptionName     = $row['appointmentDate'];
+                    $prescriptionNotes    = $row['appointmentTime'];
+                    $appointmentDoctorID = $row['DoctorID'];
+                    $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+                    while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
+                    {
+                      $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
+                    }
+      ?>
+              <td>
+             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
+
+               </td>
                
             <td id="rightInfoCenter">
             
