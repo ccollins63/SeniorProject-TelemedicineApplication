@@ -120,8 +120,6 @@ if($result->num_rows > 0)
       {
         while($row = mysqli_fetch_array($prescriptionResult))
         {	
-              $userFirstName = $row['FirstName'];
-              $userLastName = $row['LastName'];
               $prescriptionName     = $row['PrescriptionName'];
               $prescriptionNotes    = $row['PrescriptionNotes'];
               $prescriptionQuantity = $row['PrescriptionQuantity'];
@@ -133,30 +131,23 @@ if($result->num_rows > 0)
                 $prescriptionDoctorLastName = $prescriptionDoctorNameRow['LastName'];
               }
       ?>
-        <div class="prescriptionContainer">
-          <div class="spaceBetween">
-            <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
-          </div>
-          <div>
-            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
-          <span><?php echo "$prescriptionDoctorLastName"; ?> requests a refill.</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
-          
-          <button type="button" class="btn btn-primary" style="max-width: 100px; float:right;" id="accept">Accept</button>
-            <button type="button" class="btn btn-danger" style="max-width: 100px; float:right;" id="reject">Reject</button>
-          
+            <div class="prescriptionContainer">
+              <div class="spaceBetween">
+                <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
+              </div>
+              <div>
+                <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
+                <span><?php echo "$userFirstName $userLastName"; ?> requests a refill.</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+              
+                <button type="button" class="btn btn-primary" style="max-width: 100px; float:right;" id="accept">Accept</button>
+                <button type="button" class="btn btn-danger" style="max-width: 100px; float:right;" id="reject">Reject</button>
+              </div>
+            </div>
+
         <?php
           }
       }?>
 
-
-
-
-
-                    <div class="alert alert-light" role="alert" style="display: flex; justify-content: space-between;" id="request">
-                      <p><span>John Doe</span> requests for <span>Ibuprofen</span> refill. Quantity:<span>800mg</span></p>
-                      <button type="button" class="btn btn-primary" style="max-width: 100px" id="accept">Accept</button>
-                      <button type="button" class="btn btn-danger" style="max-width: 100px" id="reject">Reject</button>
-                    </div>
                   </td>
                   <!--Notification End-->
                 </tr>
