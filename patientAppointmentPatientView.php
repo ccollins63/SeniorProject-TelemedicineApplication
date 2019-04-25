@@ -148,17 +148,17 @@ $appointmentQuery = "SELECT * FROM Appointment WHERE AppointmentID = '$appointme
                           </button>
                         </div>
                         <div class="modal-body">
-                        <form action=".php" method="post">
+                        <form action="appointmentNotesInput.php" method="post">
                             <div class="form-group">
                                 <label for="extraNotes">Extra Notes</label>
                                 <textarea class="form-control" id="extraNotes" rows="3"></textarea>
                             </div>
                           
-                        </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Submit Edits</button>
+                          <button type="submit" class="btn btn-primary">Submit Edits</button>
                         </div>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -180,7 +180,9 @@ $appointmentQuery = "SELECT * FROM Appointment WHERE AppointmentID = '$appointme
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                                    <button type="button" class="btn btn-danger">Yes, Cancel</button>
+                                        <form action="appointmentCancellation.php" method="post">
+                                    <button type="submit" class="btn btn-danger">Yes, Cancel</button>
+                                        </form>
                                     </div>
                                 </div>
                                 </div>
@@ -188,6 +190,7 @@ $appointmentQuery = "SELECT * FROM Appointment WHERE AppointmentID = '$appointme
                             <!--End Modal-->
                 </div>
             </div>
+          </div>
       </td>
     </tr>
     <tr>
