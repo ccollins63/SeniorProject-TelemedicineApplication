@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/auth.php';
+$appointmentID  = $_GET['id'];
 
 include 'connect-mysql.php';
 $conn = connectDB();
@@ -20,7 +21,7 @@ if($result->num_rows > 0)
     }    
 }
 
-$appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+$appointmentQuery = "SELECT * FROM Appointment WHERE AppointmentID = '$appointmentID'";
 
   console.log($appointmentQuery);
             
@@ -30,7 +31,6 @@ $appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[user
   {
       while($row = mysqli_fetch_array($appointmentResult))
       {	
-        $appointmentID = $row['AppointmentID'];
         $appointmentDate     = $row['Date'];
         $appointmentTime    = $row['Time'];
         $appointmentDoctorID = $row['DoctorID'];
