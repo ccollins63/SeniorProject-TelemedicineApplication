@@ -115,8 +115,7 @@ if($result->num_rows > 0)
         <img src="images/man.png" style="max-width: 200px; margin: auto; display: block;">
         <span class="glyphicon glyphicon-camera" aria-hidden="true"></span><a href="#" style="padding: 10px 5px 10px 5px;">Change Picture</a>
       </div>
-      <form style="margin: 0 auto; width: 50%; text-align: center;">
-      <form action="profileInput.php" method="post">
+      <form action="profileInput.php" method="post" style="margin: 0 auto; width: 50%; text-align: center;">
             <div class="form-group row">
               <label for="staticFirstName" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">
@@ -143,7 +142,7 @@ if($result->num_rows > 0)
                   </div>
                   <button type="submit" class="btn btn-primary">Submit Edits</button><br><br>
           </form>
-      <!-- InstanceEndEditable --></td>
+          <!-- InstanceEndEditable -->
       <td> &nbsp;</td>
     </tr>
     <tr>

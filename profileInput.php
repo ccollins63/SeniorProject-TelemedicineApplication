@@ -3,7 +3,7 @@
 
     $connection = connectDB();
 
-    if (!$conn) {
+    if (!$connection) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
@@ -14,16 +14,16 @@
 
 
 
-    $sql = "UPDATE User SET FirstName='Bob' WHERE PatientID = 10";
+    $sql = "UPDATE User SET FirstName='$staticFirstName' WHERE PatientID = $_SESSION[userID]";
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
 
-    if (mysqli_query($conn, $sql)) {
+    if ($result === TRUE) {
         echo "Record uploaded successfully";
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
 
-    mysqli_close($conn);
+    mysqli_close($connection);
 
     header("Location: patientProfile-edit.php");
 ?>
