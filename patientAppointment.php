@@ -203,7 +203,7 @@ if($result->num_rows > 0)
           
           	<td> 
          
-             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorName"?> </p>
+             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorLastName"?> </p>
              
           	  </td>
           	  
