@@ -174,18 +174,6 @@ if($result->num_rows > 0)
           <tr>
             <td class="mainBodyTitle">
             
-            <p>Past </p>
-            
-            </td>
-            
-            <td>
-             
-             <label for="Show">Select:</label>
-              <select name="Show" id="Show" title="Show Past">
-                <option value="1">3 Months</option>
-              </select>
-              
-              </td>
           
           </tr>
 
