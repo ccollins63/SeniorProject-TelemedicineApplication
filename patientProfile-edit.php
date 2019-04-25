@@ -120,25 +120,25 @@ if($result->num_rows > 0)
             <div class="form-group row">
               <label for="staticFirstName" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticFirstName" value=<?php echo "$userFirstName"?>>
+                <input type="text" class="form-control" id="staticFirstName" name="staticFirstName" value=<?php echo "$userFirstName"?>>
               </div>
             </div>
             <div class="form-group row">
               <label for="staticLastName" class="col-sm-2 col-form-label">Last Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticLastName" value=<?php echo "$userLastName"?>>
+                <input type="text" class="form-control" id="staticLastName" name="staticLastName" value=<?php echo "$userLastName"?>>
               </div>
             </div>
             <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email Address</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="staticEmail" value=<?php echo "$userEmail"?>>
+                      <input type="text" class="form-control" id="staticEmail" name="staticEmail" value=<?php echo "$userEmail"?>>
                     </div>
             </div>
             <div class="form-group row">
                     <label for="staticBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="staticBirth" value=<?php echo "$userBirthday"?>>
+                      <input type="text" class="form-control" id="staticBirth" name="staticBirth" value=<?php echo "$userBirthday"?>>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit Edits</button><br><br>
