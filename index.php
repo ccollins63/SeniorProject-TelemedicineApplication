@@ -45,17 +45,6 @@ if ($result)
     $numOfPrescriptions = 0;
   }
 
-  $query = "SELECT * FROM Messages WHERE PatientID = '$_SESSION[userID]'";
-  $result = $conn->query($query);
-  if ($result) 
-  { 
-    // it return number of rows in the table. 
-      $numOfMessages = mysqli_num_rows($result); 
-  } 
-   else
-  {
-    $numOfMessages = 0;
-  }
   ?>
 
 <!doctype html>
@@ -172,17 +161,7 @@ if ($result)
             </td>
             </tr>
           <!--End of Section 2 Prescriptions-->
-          <!--Section 3 Messages-->
-          <tr>
-            <td colspan="2"><h3>Messages</h3></td>
-            </tr>
-          <tr>
-            <td><p>You have <?php echo "$numOfMessages"; ?> messages pending.</p></td>
-            <td>
-                <button class="sectionButton" onclick="location.href='patientMessages.php'" type="button">View Messages</button>
-            </td>
-          </tr>
-          <!--End of Section 3 Messages-->
+          
           </tbody>
       </table>      <p>&nbsp;</p>      </td>
 

@@ -19,6 +19,30 @@ if($result->num_rows > 0)
         $userLastName = $row['LastName'];
     }    
 }
+
+$query = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+$result = $conn->query($query);
+if ($result) 
+  { 
+    // it return number of rows in the table. 
+    $numOfAppointments = mysqli_num_rows($result); 
+  } 
+  else
+  {
+    $numOfAppointments = 0;
+  }
+
+$query = "SELECT * FROM Prescription WHERE PrescriptionRequest = 'TRUE'";
+$result = $conn->query($query);
+if ($result) 
+  { 
+    // it return number of rows in the table. 
+    $numOfPrescriptions = mysqli_num_rows($result); 
+  } 
+  else
+  {
+    $numOfPrescriptions = 0;
+  }
 ?>
 
 <!doctype html>
@@ -101,7 +125,7 @@ if($result->num_rows > 0)
           <tr class="banner">
             <td width="22%"><img src="images/man.png" alt="man" height="100px" width="100px" ></td>
             <td width="78%" class="signout"><p id="a">Welcome, Dr.  <span><?php echo "$userFirstName $userLastName"; ?></span></p>
-              <p id="b"> Sign Out </p></td>
+            <a href="login.php">Sign Out</a>
             </tr>
           </tbody>
       </table>
@@ -115,7 +139,7 @@ if($result->num_rows > 0)
               </td>
             </tr>
           <tr>
-            <td><p>Your next appointment is with Jane Doe at 4:30pm.</p></td>
+          <td><p>You have <?php echo "$numOfAppointments"; ?> upcoming appointments.</p></td>
             <td><button class="sectionButton" onclick="location.href='doctorAppointment.php'" type="button">View all appointments</button></td>
             </tr>
           <!--End of Section 1 Appointments-->
@@ -124,19 +148,11 @@ if($result->num_rows > 0)
             <td colspan="2"><h3>Prescriptions</h3></td>
             </tr>
           <tr>
-            <td><p>You have 1 refill request pending.</p></td>
+          <td><p>You have <?php echo "$numOfPrescriptions"; ?> upcoming prescriptions.</p></td>
             <td><button class="sectionButton" onclick="location.href='doctorPrescriptionRequest.php'">View Refill Requests</button></td>
             </tr>
           <!--End of Section 2 Prescriptions-->
-          <!--Section 3 Messages-->
-          <tr>
-            <td colspan="2"><h3>Messages</h3></td>
-            </tr>
-          <tr>
-            <td><p>You have 2 messages pending.</p></td>
-            <td><button class="sectionButton" onclick="location.href='doctorMessages.php'">View Messages</button></td>
-          </tr>
-          <!--End of Section 3 Messages-->
+          
           </tbody>
       </table>      <p>&nbsp;</p>      </td>
 

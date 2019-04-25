@@ -148,22 +148,23 @@ if($result->num_rows > 0)
               while($row = mysqli_fetch_array($appointmentResult))
               {	
                     $appointmentID = $row['AppointmentID'];
-                    $userFirstName = $row['FirstName'];
-                    $userLastName = $row['LastName'];
+                    $appointmentPatientID = $row['PatientID'];
                     $appointmentDate     = $row['Date'];
                     $appointmentTime    = $row['Time'];
+                    $appointmentPatientNotes = $row['PatientNotes'];
                     $appointmentDoctorID = $row['DoctorID'];
-                    $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
-                    while($appointmentDoctorNameRow = mysqli_fetch_array($appointmentDoctorNameResult))
+                    $appointmentPatientNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentPatientID'");
+                    while($appointmentPatientNameRow = mysqli_fetch_array($appointmentPatientNameResult))
                     {
-                      $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
+                      $appointmentPatientFirstName = $appointmentPatientNameRow['FirstName'];
+                      $appointmentPatientLastName = $appointmentPatientNameRow['LastName'];
                     }
       ?>
           <tr class="info">
           
           	<td> 
          
-             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorLastName"?> </p>
+             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "$appointmentPatientFirstName $appointmentPatientLastName"?> </p>
              
           	  </td>
           	  
@@ -194,12 +195,12 @@ if($result->num_rows > 0)
                     <div class="modal-body">
                     <div class="row justify-content-center">
                 <div class="col-5">
-                    <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+                    <h4>Patient Name:</h4> <span><?php echo "$appointmentPatientFirstName $appointmentPatientLastName"; ?></span>
                     <h4>Patient Notes:</h4> <span><?php echo "$appointmentPatientNotes";?></span>
                 </div>
                 <div class="col-5">
                         <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
-                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentTime";?></span>   
                 </div>
                         <br>
                         
