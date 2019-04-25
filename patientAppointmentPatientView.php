@@ -130,7 +130,7 @@ $appointmentQuery = "SELECT * FROM Appointment WHERE AppointmentID = '$appointme
                 </div>
                 <div class="col-5">
                         <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
-                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentTime";?></span>   
                 </div>
             </div>
             <div class="row justify-content-center">

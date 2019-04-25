@@ -168,14 +168,14 @@ if($result->num_rows > 0)
                         <br>
                         (Office hours are 9am to 6pm)<br><br>
                         <div class="form-group">
-                            <label for="extraNotes">Extra Notes</label>
-                            <textarea class="form-control" id="extraNotes" name="extraNotes" rows="3"></textarea>
+                            <label for="patientNotes">Extra Notes</label>
+                            <textarea class="form-control" id="patientNotes" name="patientNotes" rows="3"></textarea>
                         </div>
                       
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="window.location.href='appointmentInput.php'" >Submit Request</button>
+                      <button type="submit" class="btn btn-primary">Submit Request</button>
                     </div>
                       </form>
                   </div>
@@ -250,7 +250,6 @@ if($result->num_rows > 0)
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                      <form action="patientAppointmentPatientView.php" method="post">
                     <div class="modal-body">
                     <div class="row justify-content-center">
                 <div class="col-5">
@@ -265,6 +264,7 @@ if($result->num_rows > 0)
                         
                       
                     </div>
+                          </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNotesModal">Edit Notes</button>
                     <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#cancelConfirmModal">Cancel Appointment</button>
@@ -286,7 +286,9 @@ if($result->num_rows > 0)
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                                    <button type="button" class="btn btn-danger" onclick="window.location.href='appointmentCancellation.php'">Yes, Cancel</button>
+                                        <form action="appointmentCancellation.php" method="post">
+                                    <button type="submit" class="btn btn-danger">Yes, Cancel</button>
+                                        </form>
                                     </div>
                                 </div>
                                 </div>
@@ -304,53 +306,41 @@ if($result->num_rows > 0)
                           </button>
                         </div>
                         <div class="modal-body">
-                        <form action=".php" method="post">
+                        <form action="appointmentNotesInput.php" method="post">
                             <div class="form-group">
-                                <label for="extraNotes">Extra Notes</label>
-                                <textarea class="form-control" id="extraNotes" rows="3"></textarea>
+                                <label for="patientNotes">Extra Notes</label>
+                                <textarea class="form-control" id="patientNotes" name="patientNotes" rows="3"><?php echo "$appointmentPatientNotes";?></textarea>
+                                <textarea id="appointID" name="appointID" style="visibility:hidden"><?php echo "$appointmentID";?></textarea>
                             </div>
-                          
-                        </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" onclick="window.location.href='appointmentNotesInput.php'">Submit Edits</button>
+                          <button type="submit" class="btn btn-primary">Submit Edits</button>
+                            
+                            </div>
+                            </form>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!--End Edit Notes Modal-->
 
-
-
-                      </form>
                   </div>
                 </div>
               </div>
-          
             </td>
             
           </tr>
           <!--End of Section 1 Appointments-->
-             </p>
-
-          	  
-          	  </td>
-          </tr>
+          </tbody>
+          </table>
           <?php
           }
       }?>
+        </td>
           <!--End of Section 3 Messages-->
         </tbody>
       </table>
-      <p>&nbsp;</p>
-      <!-- InstanceEndEditable --></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
+      
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
