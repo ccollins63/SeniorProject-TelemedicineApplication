@@ -212,8 +212,8 @@ if($result->num_rows > 0)
 
             
              <p>
-             
-             <a href="patientAppointmentPatientView.php?id=<?php echo $appointmentID->id; ?>">
+
+             <a href="patientAppointmentPatientView.php?id=<?php echo $appointmentID; ?>">
 
              View
              
