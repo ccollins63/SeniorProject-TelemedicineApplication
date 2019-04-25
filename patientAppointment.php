@@ -144,7 +144,7 @@ if($result->num_rows > 0)
                     </div>
                       <form action="appointmentInput.php" method="post">
                     <div class="modal-body">
-                       What date works for you? <input type="date" name="bday"><br>
+                       What date works for you? <input type="date" name="date"><br>
                        What time? 
                        <input type="time" id="time" name="time" min="9:00" max="18:00" required>
                         <br>
@@ -157,7 +157,7 @@ if($result->num_rows > 0)
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request has been submitted!')">Submit Request</button>
+                      <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request has been submitted!')" >Submit Request</button>
                     </div>
                       </form>
                   </div>
@@ -170,10 +170,28 @@ if($result->num_rows > 0)
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->
           <tr class="info">
-            <?php if ($result->num_rows > 0)
+          <?php
+            $prescriptionQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+
+            console.log($appointmentQuery);
+            
+            $appointmentResult = $conn->query($appointmentQuery);
+            
+            if($appointmentResult->num_rows > 0)
             {
-              while ($row = $result->fetch_array(MYSQLI_ASSOC))
-              { ?>
+              while($row = mysqli_fetch_array($appointmentResult))
+              {	
+                    $userFirstName = $row['FirstName'];
+                    $userLastName = $row['LastName'];
+                    $prescriptionName     = $row['appointmentDate'];
+                    $prescriptionNotes    = $row['appointmentTime'];
+                    $appointmentDoctorID = $row['DoctorID'];
+                    $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+                    while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
+                    {
+                      $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
+                    }
+      ?>
               <td>
              <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
 
