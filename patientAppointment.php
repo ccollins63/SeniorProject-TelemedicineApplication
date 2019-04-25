@@ -175,7 +175,7 @@ if($result->num_rows > 0)
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="alert('Thank you, your request has been submitted!')" >Submit Request</button>
+                      <button type="button" class="btn btn-primary" onclick="window.location.href='appointmentInput.php'" >Submit Request</button>
                     </div>
                       </form>
                   </div>
