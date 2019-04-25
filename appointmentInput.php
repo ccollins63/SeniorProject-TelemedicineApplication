@@ -1,19 +1,23 @@
 <?php
     include 'connect-mysql.php';
     $date = $_POST['date'];
+    //if($_POST['time'] >= )
     $time = $_POST['time'];
     $extraNotes = $_POST['extraNotes'];
+
+    echo $time;
+echo $date;
 
 
     $connection = connectDB();
 
-    $sql = "INSERT INTO Appointment (PatientID, Date, Time, PatientNotes) VALUES ($_SESSION[userID]', '$date', '$time', '$extraNotes')";
+    $sql = "INSERT INTO Appointment (DoctorID, PatientID, Date, Time, PatientNotes) VALUES (4, $_SESSION[userID], '$date', '$time', '$extraNotes')";
     $result = $connection->query($sql) or trigger_error($connection->error."[$sql]");
 
     if ($result === TRUE) {
         echo "Record uploaded successfully";
     } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Error deleting record: " . mysqli_error($connection);
     }
 
     mysqli_close($connection);
