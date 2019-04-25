@@ -1,5 +1,27 @@
 <?php
 require __DIR__ . '/auth.php';
+
+include 'connect-mysql.php';
+$conn = connectDB();
+
+if($conn->connect_error) die ("Unable to connect to database".$conn->connect_error);
+
+$query = "SELECT * FROM User WHERE PatientID = '$_SESSION[userID]'";
+
+console.log($query);
+
+$result = $conn->query($query);
+if($result->num_rows > 0)
+{
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {	
+        $userFirstName = $row['FirstName'];
+        $userLastName = $row['LastName'];
+        $userEmail = $row['Email'];
+        $userBirthday = $row['DateOfBirth'];
+        $userPhoneNumber = $row['PhoneNumber'];
+    }
+}
 ?>
 <!doctype html>
 
@@ -95,21 +117,27 @@ require __DIR__ . '/auth.php';
       </div>
       <form style="margin: 0 auto; width: 50%; text-align: center;">
             <div class="form-group row">
-              <label for="staticName" class="col-sm-2 col-form-label">Full Name</label>
+              <label for="staticFirstName" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticName" value="John Doe">
+                <input type="text" class="form-control" id="staticFirstName" value=<?php echo "$userFirstName"?>>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticLastName" class="col-sm-2 col-form-label">Last Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticLastName" value=<?php echo "$userLastName"?>>
               </div>
             </div>
             <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email Address</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="staticEmail" value="email@email.com">
+                      <input type="text" class="form-control" id="staticEmail" value=<?php echo "$userEmail"?>>
                     </div>
             </div>
             <div class="form-group row">
-                    <label for="staticBirth" class="col-sm-2 col-form-label">Birthday</label>
+                    <label for="staticBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="staticBirth" value="01/01/1991">
+                      <input type="text" class="form-control" id="staticBirth" value=<?php echo "$userBirthday"?>>
                     </div>
                   </div>
           </form>

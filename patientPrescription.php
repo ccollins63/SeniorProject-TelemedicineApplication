@@ -143,7 +143,6 @@ if($result->num_rows > 0)
               $prescriptionDoctorNameResult = mysqli_query($con,"SELECT * FROM User WHERE PatientID = '$prescriptionDoctorID'");
               while($prescriptionDoctorNameRow = mysqli_fetch_array($prescriptionDoctorNameResult))
               {
-                $prescriptionDoctorFirstName = $prescriptionDoctorNameRow['FirstName'];
                 $prescriptionDoctorLastName = $prescriptionDoctorNameRow['LastName'];
               }
       ?>
@@ -154,7 +153,7 @@ if($result->num_rows > 0)
           </div>
           <div>
             <p><?php echo "$prescriptionNotes"; ?></p>
-          <span>Prescribed by: <?php echo "$prescriptionDoctorFirstName $prescriptionDoctorLastName"; ?></span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+          <span>Prescribed by: <?php echo "Dr. $prescriptionDoctorLastName"; ?></span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
           <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
             Request refill
           </button>

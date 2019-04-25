@@ -150,7 +150,7 @@ if($result->num_rows > 0)
                     </div>
                   </div>
           </form>
-            <button class="sectionButton" onclick="location.href='profile-edit.php'" type="button">Edit Profile</button><br>
+            <button class="sectionButton" onclick="location.href='patientProfile-edit.php'" type="button">Edit Profile</button><br>
             <button class="sectionButton" onclick="location.href='login.php'" type="button">Sign Out</button>
       <!-- InstanceEndEditable --></td>
     </tr>
