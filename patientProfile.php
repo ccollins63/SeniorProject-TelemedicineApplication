@@ -19,7 +19,6 @@ if($result->num_rows > 0)
         $userLastName = $row['LastName'];
         $userEmail = $row['Email'];
         $userBirthday = $row['DateOfBirth'];
-        $userPhoneNumber = $row['PhoneNumber'];
     }
 }
 ?>
@@ -137,12 +136,7 @@ if($result->num_rows > 0)
                       <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo htmlspecialchars($userEmail); ?>">
                     </div>
             </div>
-            <div class="form-group row">
-                    <label for="staticPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
-                    <div class="col-sm-10">
-                      <input type="text" readonly class="form-control-plaintext" id="staticPhoneNumber" value="<?php echo htmlspecialchars($userPhoneNumber); ?>">
-                    </div>
-            </div>
+          
             <div class="form-group row">
                     <label for="staticBirth" class="col-sm-2 col-form-label">Birthday</label>
                     <div class="col-sm-10">
