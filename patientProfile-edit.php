@@ -141,7 +141,7 @@ if($result->num_rows > 0)
                     </div>
                   </div>
           </form>
-          <button class="sectionButton">Submit Edits</button>
+          <button type="submit" class="btn btn-primary">Submit Edits</button><br><br>
       <!-- InstanceEndEditable --></td>
       <td> &nbsp;</td>
     </tr>
