@@ -35,41 +35,43 @@ require __DIR__ . '/auth.php'; ?>
 
                 <tr class="navcenter">
                   <td>
-                    <!--Doctor Navigation-->
-                    <p>
-                        <a href="doctorIndex.html">
-                          <button>Home</button>
-                        </a>
-                      </p>
-    
-                      <p>
-                        <a href="doctorAppointment.html">
-                          <button>Appointments</button>
-                        </a>
-                      </p>
-    
-                      <p>
-                        <a href="doctorMessages.html">
-                          <button>Messages</button>
-                        </a>
-                      </p>
-                      <p>
-                        <a href="doctorPrescriptionRequest.html">
-                          <button>Refill Requests</button>
-                        </a>
-                      </p>
-                      <p>
-                        <a href="doctorCreateUser.html">
-                          <button>New Patient</button>
-                        </a>
-                      </p>
-    
-                      <p>
-                        <a href="video.html">
-                          <button>Video Call</button>
-                        </a>
-                      </p>
-                    <!--End Doctor Navigation-->
+                    
+                   <!--Doctor Navigation-->
+                  <p>
+                    <a href="doctorIndex.php">
+                      <button>Home</button>
+                    </a>
+                  </p>
+
+                  <p>
+                    <a href="doctorAppointment.php">
+                      <button>Appointments</button>
+                    </a>
+                  </p>
+
+                  <p>
+                    <a href="doctorMessages.php">
+                      <button>Messages</button>
+                    </a>
+                  </p>
+                  <p>
+                    <a href="doctorPrescriptionRequest.php">
+                      <button>Refill Requests</button>
+                    </a>
+                  </p>
+                  <p>
+                    <a href="doctorCreateUser.php">
+                      <button>New Patient</button>
+                    </a>
+                  </p>
+
+                  <p>
+                    <a href="video.php">
+                      <button>Video Call</button>
+                    </a>
+                  </p>
+                <!--End Doctor Navigation-->
+
                   </td>
                 </tr>
               </tbody>

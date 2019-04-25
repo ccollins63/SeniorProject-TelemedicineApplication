@@ -37,35 +37,35 @@ require __DIR__ . '/auth.php'; ?>
    
                   <!--Doctor Navigation-->
                   <p>
-                    <a href="doctorIndex.html">
+                    <a href="doctorIndex.php">
                       <button>Home</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="doctorAppointment.html">
+                    <a href="doctorAppointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="doctorMessages.html">
+                    <a href="doctorMessages.php">
                       <button>Messages</button>
                     </a>
                   </p>
                   <p>
-                    <a href="doctorPrescriptionRequest.html">
+                    <a href="doctorPrescriptionRequest.php">
                       <button>Refill Requests</button>
                     </a>
                   </p>
                   <p>
-                    <a href="doctorCreateUser.html">
+                    <a href="doctorCreateUser.php">
                       <button>New Patient</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="video.html">
+                    <a href="video.php">
                       <button>Video Call</button>
                     </a>
                   </p>
@@ -101,7 +101,7 @@ require __DIR__ . '/auth.php'; ?>
             </tr>
           <tr>
             <td><p>Your next appointment is with Jane Doe at 4:30pm.</p></td>
-            <td><button class="sectionButton" onclick="location.href='doctorAppointment.html'" type="button">View all appointments</button></td>
+            <td><button class="sectionButton" onclick="location.href='doctorAppointment.php'" type="button">View all appointments</button></td>
             </tr>
           <!--End of Section 1 Appointments-->
           <!--Section 2 Prescriptions-->
@@ -110,7 +110,7 @@ require __DIR__ . '/auth.php'; ?>
             </tr>
           <tr>
             <td><p>You have 1 refill request pending.</p></td>
-            <td><button class="sectionButton" onclick="location.href='doctorPrescriptionRequest.html'">View Refill Requests</button></td>
+            <td><button class="sectionButton" onclick="location.href='doctorPrescriptionRequest.php'">View Refill Requests</button></td>
             </tr>
           <!--End of Section 2 Prescriptions-->
           <!--Section 3 Messages-->
@@ -119,7 +119,7 @@ require __DIR__ . '/auth.php'; ?>
             </tr>
           <tr>
             <td><p>You have 2 messages pending.</p></td>
-            <td><button class="sectionButton" onclick="location.href='doctorMessages.html'">View Messages</button></td>
+            <td><button class="sectionButton" onclick="location.href='doctorMessages.php'">View Messages</button></td>
           </tr>
           <!--End of Section 3 Messages-->
           </tbody>

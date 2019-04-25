@@ -38,39 +38,41 @@ require __DIR__ . '/auth.php'; ?>
           <tr class="navcenter">
             <td>
    
-                <p>
-                    <a href="doctorIndex.html">
+               <!--Doctor Navigation-->
+               <p>
+                    <a href="doctorIndex.php">
                       <button>Home</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="doctorAppointment.html">
+                    <a href="doctorAppointment.php">
                       <button>Appointments</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="doctorMessages.html">
+                    <a href="doctorMessages.php">
                       <button>Messages</button>
                     </a>
                   </p>
                   <p>
-                    <a href="doctorPrescriptionRequest.html">
+                    <a href="doctorPrescriptionRequest.php">
                       <button>Refill Requests</button>
                     </a>
                   </p>
                   <p>
-                    <a href="doctorCreateUser.html">
+                    <a href="doctorCreateUser.php">
                       <button>New Patient</button>
                     </a>
                   </p>
 
                   <p>
-                    <a href="video.html">
+                    <a href="video.php">
                       <button>Video Call</button>
                     </a>
                   </p>
+                <!--End Doctor Navigation-->
             	
             </td>
           </tr>
