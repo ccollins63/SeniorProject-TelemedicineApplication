@@ -207,10 +207,9 @@ if($result->num_rows > 0)
               while($row = mysqli_fetch_array($appointmentResult))
               {	
                     $appointmentID = $row['AppointmentID'];
-                    $userFirstName = $row['FirstName'];
-                    $userLastName = $row['LastName'];
                     $appointmentDate     = $row['Date'];
                     $appointmentTime    = $row['Time'];
+                    $appointmentPatientNotes   = $row['PatientNotes'];
                     $appointmentDoctorID = $row['DoctorID'];
                     $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
                     while($appointmentDoctorNameRow = mysqli_fetch_array($appointmentDoctorNameResult))
@@ -255,12 +254,12 @@ if($result->num_rows > 0)
                     <div class="modal-body">
                     <div class="row justify-content-center">
                 <div class="col-5">
-                    <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
+                    <h4>Doctor Name:</h4> <span><?php echo "Dr. $appointmentDoctorLastName"; ?></span>
                     <h4>Patient Notes:</h4> <span><?php echo "$appointmentPatientNotes";?></span>
                 </div>
                 <div class="col-5">
                         <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
-                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentTime";?></span>   
                 </div>
                         <br>
                         
@@ -269,7 +268,6 @@ if($result->num_rows > 0)
                     <div class="modal-footer">
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNotesModal">Edit Notes</button>
                     <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#cancelConfirmModal">Cancel Appointment</button>
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 
                       
                     </div>
