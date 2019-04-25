@@ -168,10 +168,28 @@ if($result->num_rows > 0)
             
           </tr>
           <!--End of Section 1 Appointments-->
-          <!--Section 2 Prescriptions-->
-          <tr class="info">
+          
+          <!--End of Section 2 Prescriptions-->
+          <!--Section 3 Messages-->
+          <tr>
+            <td class="mainBodyTitle">
+            
+            <p>Past </p>
+            
+            </td>
+            
+            <td>
+             
+             <label for="Show">Select:</label>
+              <select name="Show" id="Show" title="Show Past">
+                <option value="1">3 Months</option>
+              </select>
+              
+              </td>
+          
+          </tr>
           <?php
-            $prescriptionQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
+            $appointmentQuery = "SELECT * FROM Appointment WHERE PatientID = '$_SESSION[userID]'";
 
             console.log($appointmentQuery);
             
@@ -192,61 +210,26 @@ if($result->num_rows > 0)
                       $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
                     }
       ?>
-              <td>
-             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
-
-               </td>
-               
-            <td id="rightInfoCenter">
-            
-             <p><a href="appointmentPatientView.php">View</a></p>
-              <p>View</p>
-              
-              </td>
-              <?php
-             }
-            }
-             ?>
-          </tr>
-          <!--End of Section 2 Prescriptions-->
-          <!--Section 3 Messages-->
-          <tr>
-            <td class="mainBodyTitle">
-            
-            <p>Past </p>
-            
-            </td>
-            
-            <td>
-             
-             <label for="Show">Select:</label>
-              <select name="Show" id="Show" title="Show Past">
-                <option value="1">3 Months</option>
-              </select>
-              
-              </td>
-          
-          </tr>
           <tr class="info">
           
           	<td> 
          
-         	  <p>Monday, March 21, 2019 with John Smith MD</p>
-          	  <p>Monday, March 21, 2019 with John Smith MD</p>
-          	  <p>Monday, March 21, 2019 with John Smith MD</p>
-          	  <p>Monday, March 21, 2019 with John Smith MD</p>
-          	  
+             <p>Monday, March 21, 2019 with John Smith MD</p>
+             <p><?php echo '$appointmentDate'?> at <?php echo '$appointmentTime'?> with <?php echo '$appointmentDoctorName'?> </p>
+             
           	  </td>
           	  
           	<td id="rightInfoCenter">
          	  
-         	  <p>View</p>
-          	  <p>View</p>
-          	  <p>View</p>
-          	  <p>View</p>
+             <p>View</p>
+             <p>View</p>
+
           	  
           	  </td>
           </tr>
+          <?php
+          }
+      }?>
           <!--End of Section 3 Messages-->
         </tbody>
       </table>
