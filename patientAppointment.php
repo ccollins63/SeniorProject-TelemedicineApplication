@@ -106,6 +106,13 @@ if($result->num_rows > 0)
            
            <td class="appTitle">Appointments</td>
 
+            <!-- Button trigger modal -->
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Schedule Appointment
+              </button>
+              
+              </td>
+
            </tr>
         </tbody>
       </table>
@@ -117,17 +124,13 @@ if($result->num_rows > 0)
             <tr>
             <div id="textContainer">
             	 <td class="mainBodyTitle">
-            
-            <p>Upcoming </p>
+        
             	
             </div>
            
             <td>
              
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Schedule Appointment
-              </button>
+          
               
               <!-- Modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -199,10 +202,10 @@ if($result->num_rows > 0)
               {	
                     $userFirstName = $row['FirstName'];
                     $userLastName = $row['LastName'];
-                    $appointmentDate     = $row['Date'];
-                    $appointmentTime    = $row['Time'];
+                    $prescriptionName     = $row['appointmentDate'];
+                    $prescriptionNotes    = $row['appointmentTime'];
                     $appointmentDoctorID = $row['DoctorID'];
-                    $appointmentNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+                    $prescriptionDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
                     while($appointmentDoctorNameRow = mysqli_fetch_array(appointmentDoctorNameResult))
                     {
                       $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
@@ -212,7 +215,7 @@ if($result->num_rows > 0)
           
           	<td> 
          
-             <p><?php echo "$appointmentDate";?> at <?php echo "$appointmentTime";?> with <?php echo "Dr. $appointmentDoctorName";?> </p>
+             <p><?php echo "$appointmentDate"?> at <?php echo "$appointmentTime"?> with <?php echo "Dr. $appointmentDoctorName"?> </p>
              
           	  </td>
           	  
