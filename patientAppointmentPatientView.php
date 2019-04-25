@@ -15,8 +15,18 @@ if($result->num_rows > 0)
 {
     while($row = $result->fetch_array(MYSQLI_ASSOC))
     {	
-        $userFirstName = $row['FirstName'];
-        $userLastName = $row['LastName'];
+      $appointmentID = $row['AppointmentID'];
+      $userFirstName = $row['FirstName'];
+      $userLastName = $row['LastName'];
+      $appointmentDate     = $row['Date'];
+      $appointmentTime    = $row['Time'];
+      $appointmentPatientNotes = $row['PatientNotes'];
+      $appointmentDoctorID = $row['DoctorID'];
+      $appointmentDoctorNameResult = mysqli_query($conn,"SELECT * FROM User WHERE PatientID = '$appointmentDoctorID'");
+      while($appointmentDoctorNameRow = mysqli_fetch_array($appointmentDoctorNameResult))
+      {
+        $appointmentDoctorLastName = $appointmentDoctorNameRow['LastName'];
+      }
     }
 }
 ?>
@@ -107,11 +117,11 @@ if($result->num_rows > 0)
             <div class="row justify-content-center">
                 <div class="col-5">
                     <h4>Patient Name:</h4> <span><?php echo "$userFirstName $userLastName"; ?></span>
-                    <h4>Extra notes:</h4> <span>I want to talk about my stomach pains.</span>
+                    <h4>Patient Notes:</h4> <span><?php echo "$appointmentPatientNotes";?></span>
                 </div>
                 <div class="col-5">
-                        <h4>Date of Appointment:</h4> <span>March 21, 2019</span>
-                        <h4>Time of Appointment:</h4> <span>4:30PM</span>   
+                        <h4>Date of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>
+                        <h4>Time of Appointment:</h4> <span><?php echo "$appointmentDate";?></span>   
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -129,6 +139,7 @@ if($result->num_rows > 0)
                           </button>
                         </div>
                         <div class="modal-body">
+                        <form action="appointmentNotesInput.php" method="post">
                             <div class="form-group">
                                 <label for="extraNotes">Extra Notes</label>
                                 <textarea class="form-control" id="extraNotes" rows="3"></textarea>
