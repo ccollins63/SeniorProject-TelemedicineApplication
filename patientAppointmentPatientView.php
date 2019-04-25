@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/auth.php';
 
-$appointmentID = $_REQUEST['appointmentID'];
-
 include 'connect-mysql.php';
 $conn = connectDB();
 
