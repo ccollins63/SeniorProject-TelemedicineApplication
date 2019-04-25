@@ -95,7 +95,8 @@ if(promptValue != null){
 </script>
 <style>
 div#chatbox{
-    width: 500px;
+    margin: auto;
+    width: 75%;
     height: 400px;
     padding: 20px;
     background: skyblue;
@@ -185,7 +186,7 @@ div#chatbox > #text{
                 <!--Messages-->
                 
           <div id="chatbox">
-          <b>Equinox Chat </b>
+          <b>Equinox Chat</b>
           <div id="chattext"></div>
           <textarea id="text"></textarea>
           <input type="button" id="chat_btn" onclick="chatPost()" value="Submit Text" disabled> &nbsp; &nbsp;
