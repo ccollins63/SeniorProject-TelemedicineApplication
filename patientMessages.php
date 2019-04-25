@@ -96,10 +96,11 @@ if(promptValue != null){
 <style>
 div#chatbox{
     width: 500px;
-    height: 300px;
+    height: 400px;
     padding: 20px;
-    background:#e0e0e0;
+    background: skyblue;
     border-radius: 5px;
+    
 }
 div#chatbox > #chattext{
     height: 200px;
@@ -184,7 +185,7 @@ div#chatbox > #text{
                 <!--Messages-->
                 
           <div id="chatbox">
-          <b>SSE Chatbox <small>shared hosting test</small></b>
+          <b>Equinox Chat </b>
           <div id="chattext"></div>
           <textarea id="text"></textarea>
           <input type="button" id="chat_btn" onclick="chatPost()" value="Submit Text" disabled> &nbsp; &nbsp;
