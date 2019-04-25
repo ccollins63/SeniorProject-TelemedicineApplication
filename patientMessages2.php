@@ -210,14 +210,13 @@ if($result->num_rows > 0)
 $("#save").click(function () {
   var textReply = $("#replyTextArea").val();
 
-  if (textReply == ''){
+  if (replyTextArea == ''){
 
     swal({
       title: "No Reply",
       text: "No reply was written",
       icon: "warning",
       button: "Ok",
-      data-dismiss="modal"
 
     });
   } else {
@@ -225,14 +224,8 @@ $("#save").click(function () {
       title: "Reply was sent!",
       icon: "success",
       button: "Ok",
-      data-dismiss="modal"
 
     });
-
-
-
-
-
 
   }
 

@@ -36,6 +36,82 @@ if($result->num_rows > 0)
 <link href="patientCSS.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
+<script>
+var source, chattext, last_data, chat_btn, conx_btn, disconx_btn, text;
+var hr = new XMLHttpRequest();
+function connect(){
+    if(window.EventSource){
+        source = new EventSource("messengerServer.php");
+        source.addEventListener("message", function(event){
+            if(event.data != last_data && event.data != ""){
+                chattext.innerHTML += event.data+"<hr>";
+            }
+            last_data = event.data;
+        });
+        chat_btn.disabled = false;
+        conx_btn.disabled = true;
+        disconx_btn.disabled = false;
+    } else {
+        alert("event source does not work in this browser, author a fallback technology");
+    }
+}
+function disconnect(){
+    source.close();
+    disconx_btn.disabled = true;
+    conx_btn.disabled = false;
+    chat_btn.disabled = true;
+}
+function chatPost(){
+    chat_btn.disabled = true;
+    hr.open("POST", "messengerIntake.php", true);
+    hr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    hr.onreadystatechange = function() {
+        if(hr.readyState == 4 && hr.status == 200) {
+            chat_btn.disabled = false;
+            text.value = "";
+        }
+    }
+    hr.send("text="+text.value);
+}
+var promptValue = prompt('Enter your name:', '');
+if(promptValue != null){
+	hr.open("POST", "messengerIntake.php", true);
+	hr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    if(hr.responseText == "success"){
+				chattext = document.getElementById("chattext");
+				chat_btn = document.getElementById("chat_btn");
+				conx_btn = document.getElementById("conx_btn");
+				disconx_btn = document.getElementById("disconx_btn");
+				text = document.getElementById("text");
+				conx_btn.disabled = false;
+				alert("Welcome to the chat "+promptValue+", press connect when ready.");
+			}
+	    }
+    }
+	hr.send("uname="+promptValue);
+}
+</script>
+<style>
+div#chatbox{
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+    background:#e0e0e0;
+    border-radius: 5px;
+}
+div#chatbox > #chattext{
+    height: 200px;
+    padding: 10px;
+    background: #FFF;
+    margin: 10px 0px;
+    overflow-y: auto;
+}
+div#chatbox > #text{
+	width: 100%;
+}
+</style>
 </head>
 
 <body>
@@ -106,99 +182,16 @@ if($result->num_rows > 0)
       <!--Patient View Dashboard-->
 
                 <!--Messages-->
-            <div class="row justify-content-center">
-                <div class="col-sm-10">
-                    <p class="appTitle">Messages</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-4">
-                  <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><strong>Dr. Mitchell</strong></h5>
-                            <small>3 days ago</small>
-                          </div>
-                          <p class="mb-1">Mr. Doe, thank you for your prompt reply to my message...</p>
-                          <small>Subject: Yesterday's appointment</small>
-                    </a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><strong>Equinox Prescription Services</strong></h5>
-                            <small>03/12/19</small>
-                          </div>
-                          <p class="mb-1">Prescription Penicillin has been refilled. If you have...</p>
-                          <small>Subject: Your Prescription Has Been Refilled</small>
-                    </a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><strong>Dr. Johnson</strong></h5>
-                            <small>03/01/19 days ago</small>
-                          </div>
-                          <p class="mb-1">Mr. Doe, thank you for your prompt reply to my message...</p>
-                          <small>Subject: Yesterday's appointment</small>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="tab-content" id="nav-tabContent" style="max-width: 400px">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                      <strong>Yesterday's appointment</strong>
-                      <p>Dr. Mitchell</p>
-                      <p>Mr. Doe, thank you for your prompt reply to my message. Regarding your question, your lab results should show up in the next 3 business days.</p>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
-                    </div>
-                    <!--Modal-->
-                    <div class="modal fade" id="replyMessage" tabindex="-1" role="dialog" aria-labelledby="replyLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="replyLabel">Reply</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="replyLabel">Message</label>
-                                        <textarea class="form-control" id="replyTextArea" rows="3"></textarea>
-                                      </div>  
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Deny</button>
-                              <button type="button" id="save" class="btn btn-primary" >Confirm</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!--End Modal-->
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                      <strong>Your Prescription Has Been Refilled</strong>
-                      <p>Equinox Prescription Services</p>
-                      <p>Prescription Penicillin has been fulfilled. If you have any questions please reach out to your doctor or nurse.</p>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
-                    </div>
-        
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                      <strong>Yesterday's appointment</strong>
-                      <p>Dr. Johnson</p>
-                      <p>Mr. Doe, thank you for your prompt reply to my message. Regarding your question, your lab results should show up in the next 3 business days.</p>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#replyMessage">reply</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <!-- InstanceEndEditable -->
-        </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
+                
+          <div id="chatbox">
+          <b>SSE Chatbox <small>shared hosting test</small></b>
+          <div id="chattext"></div>
+          <textarea id="text"></textarea>
+          <input type="button" id="chat_btn" onclick="chatPost()" value="Submit Text" disabled> &nbsp; &nbsp;
+          <input type="button" id="conx_btn" onclick="connect()" value="Connect" disabled>
+          <input type="button" id="disconx_btn" onclick="disconnect()" value="Disconnect" disabled>
+        </div>
+
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -210,13 +203,14 @@ if($result->num_rows > 0)
 $("#save").click(function () {
   var textReply = $("#replyTextArea").val();
 
-  if (replyTextArea == ''){
+  if (textReply == ''){
 
     swal({
       title: "No Reply",
       text: "No reply was written",
       icon: "warning",
       button: "Ok",
+      data-dismiss="modal"
 
     });
   } else {
@@ -224,8 +218,14 @@ $("#save").click(function () {
       title: "Reply was sent!",
       icon: "success",
       button: "Ok",
+      data-dismiss="modal"
 
     });
+
+
+
+
+
 
   }
 
