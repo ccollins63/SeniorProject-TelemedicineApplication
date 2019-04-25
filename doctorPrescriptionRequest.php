@@ -150,16 +150,15 @@ if($result->num_rows > 0)
         <div class="prescriptionContainer">
           <div class="spaceBetween">
             <h5 class="drugName"><?php echo "$prescriptionName"; ?></h5>
-            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
           </div>
           <div>
-            <p><?php echo "$prescriptionNotes"; ?></p>
-          <span>Prescribed by: <?php echo "Dr. $prescriptionDoctorLastName"; ?></span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
+            <p>Prescribed on: <?php echo "$prescriptionDate"; ?></p>
+          <span><?php echo "$prescriptionDoctorLastName"; ?> requests a refill.</span><span style="margin-left: 20px">Quantity: <?php echo "$prescriptionQuantity"; ?></span>
           <button class="sectionButton" style="float:right;" data-toggle="modal" data-target="#requestRefill">
             Request refill
           </button>
-          <button type="button" class="btn btn-primary" style="max-width: 100px" id="accept">Accept</button>
-            <button type="button" class="btn btn-danger" style="max-width: 100px" id="reject">Reject</button>
+          <button type="button" class="btn btn-primary" style="max-width: 100px; float:right;" id="accept">Accept</button>
+            <button type="button" class="btn btn-danger" style="max-width: 100px; float:right;" id="reject">Reject</button>
           
         <?php
           }
