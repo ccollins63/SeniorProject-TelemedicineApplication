@@ -51,10 +51,10 @@ if($result->num_rows > 0)
     }
 
     function joinCall(){
-
+      $token = bin2hex(random_bytes(64));
       vidyoConnector.Connect({
         host:"prod.vidyo.io",
-        token:"cHJvdmlzaW9uAHVzZXIxQDFjMWU5Yi52aWR5by5pbwA2MzcyMTk2OTg1MQAANGE2MWQxMWJkMmQwNDBhNTg1MmU3NThhZmVlZDhiYmJlZGVlN2YyZWRjYmUzZWY2MDRjY2Y2MTVmMmNjMTE2MWMyYmNhMDk5NTIzZGZhMmEyZTdjMjVlMDU0OTdkMDQ0",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
+        token: $token,          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
         displayName: $userFirstName,
         resourceId:"room2",
         onSuccess: function(){
